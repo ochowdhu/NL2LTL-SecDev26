@@ -1,0 +1,625 @@
+LTL Formula,Trace,Groups Truth
+F(x1 -> G(x2)),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = TRUE];...",Positive
+F(x1 -> G(x2)),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+G(x1 -> (X(!x1) & X(X(x1)))),[x1 = TRUE];[x1 = FALSE];...,Positive
+G(x1 -> (X(!x1) & X(X(x1)))),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Negative
+X(X(X(X(F(x1))))),[x1 = FALSE];[x1 = TRUE];[x1 = FALSE];[x1 = TRUE];[x1 = TRUE];[x1 = FALSE];...,Positive
+X(X(X(X(F(x1))))),[x1 = FALSE];[x1 = FALSE];[x1 = FALSE];[x1 = TRUE];[x1 = FALSE];...,Negative
+F(x1 & G(X(!x2))),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+F(x1 & G(X(!x2))),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];...",Negative
+G(x1 -> X(!x1 U x2)),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];...",Positive
+G(x1 -> X(!x1 U x2)),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+F(x1) & G(!x2),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+F(x1) & G(!x2),"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+F(x1) -> G(x2),"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = TRUE];...",Positive
+F(x1) -> G(x2),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = TRUE];...",Negative
+G(x1 -> F(x2)),"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+G(x1 -> F(x2)),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+G(x1 -> X(!x1 U x2)),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];...",Positive
+G(x1 -> X(!x1 U x2)),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+x1 -> G(x2 U !x3),"[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = FALSE];...",Positive
+x1 -> G(x2 U !x3),"[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = FALSE, x2 = TRUE, x3 = TRUE];[x1 = FALSE, x2 = FALSE, x3 = TRUE];...",Negative
+G(x1 -> (F(x2) | X(!x3))),"[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = TRUE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = TRUE];...",Positive
+G(x1 -> (F(x2) | X(!x3))),"[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = TRUE];[x1 = TRUE, x2 = FALSE, x3 = TRUE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = TRUE];...",Negative
+G((x1 & X(x1)) -> X(X(!x1))),[x1 = TRUE];[x1 = TRUE];[x1 = FALSE];...,Positive
+G((x1 & X(x1)) -> X(X(!x1))),[x1 = TRUE];[x1 = TRUE];...,Negative
+F(x1) & G(x1 -> X(G(!x1))),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Positive
+F(x1) & G(x1 -> X(G(!x1))),[x1 = TRUE];[x1 = TRUE];[x1 = FALSE];...,Negative
+G((x1 & !x2) | (!x1 & x2) | (!x1 & !x2)),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Positive
+G((x1 & !x2) | (!x1 & x2) | (!x1 & !x2)),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+G (x1-> X(!x1 U X2)),"[X2 = FALSE, x1 = TRUE];[X2 = TRUE, x1 = FALSE];...",Positive
+G (x1-> X(!x1 U X2)),"[X2 = FALSE, x1 = TRUE];[X2 = FALSE, x1 = TRUE];...",Negative
+G(x1 -> F(X(x2))),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+G(x1 -> F(X(x2))),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+G (F(x4 -> (!(F !x1->(x2 & x3))))),"[x1 = FALSE, x2 = FALSE, x3 = FALSE, x4 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE, x4 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE, x4 = FALSE];...",Positive
+G (F(x4 -> (!(F !x1->(x2 & x3))))),"[x1 = FALSE, x2 = FALSE, x3 = FALSE, x4 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE, x4 = TRUE];[x1 = TRUE, x2 = FALSE, x3 = FALSE, x4 = TRUE];...",Negative
+G(!(x1 & x3) & !(x2 & x4) !(x2 & x3) &!(x1 & x4) & ((x2 | x3)  ->!(x1 | x4))),"[x1 = FALSE, x2 = FALSE, x3 = FALSE, x4 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE, x4 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE, x4 = FALSE];...",Positive
+G(!(x1 & x3) & !(x2 & x4) !(x2 & x3) &!(x1 & x4) & ((x2 | x3)  ->!(x1 | x4))),"[x1 = FALSE, x2 = FALSE, x3 = FALSE, x4 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE, x4 = TRUE];[x1 = TRUE, x2 = FALSE, x3 = FALSE, x4 = TRUE];...",Negative
+G(x1 &  F(!x1)),TRUE,Positive
+G(x1 &  F(!x1)),[x1 = TRUE];[x1 = TRUE];...,Negative
+G((x1 & X(!x1) & X(X(x1))) | (!x1 & X(x1) & X(X(!x1)))),[x1 = TRUE];[x1 = FALSE];...,Positive
+G((x1 & X(!x1) & X(X(x1))) | (!x1 & X(x1) & X(X(!x1)))),[x1 = TRUE];[x1 = FALSE];[x1 = TRUE];[x1 = TRUE];...,Negative
+x1 & X(G(!x1)),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Positive
+x1 & X(G(!x1)),[x1 = TRUE];[x1 = TRUE];...,Negative
+G ((!x2 & !x3) -> x1),"[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];...",Positive
+G ((!x2 & !x3) -> x1),"[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];...",Negative
+x1 & G(x1 -> X(!x1) & X(X(!x1)) & X(X(X(x1)))),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Positive
+x1 & G(x1 -> X(!x1) & X(X(!x1)) & X(X(X(x1)))),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];[x1 = FALSE];...,Negative
+G((x1 & X(x1)) -> X(X(G(!x1)))),[x1 = TRUE];[x1 = TRUE];[x1 = FALSE];...,Positive
+G((x1 & X(x1)) -> X(X(G(!x1)))),[x1 = TRUE];[x1 = FALSE];[x1 = TRUE];[x1 = TRUE];[x1 = TRUE];[x1 = FALSE];...,Negative
+x1 & (!x2 | !x3) -> F(x2 & (!x1 | !x3)) -> F(x3 & (!x2 | !x1)) & G(x3),"[x1 = FALSE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = TRUE];[x1 = TRUE, x2 = TRUE, x3 = TRUE];...",Positive
+x1 & (!x2 | !x3) -> F(x2 & (!x1 | !x3)) -> F(x3 & (!x2 | !x1)) & G(x3),"[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = TRUE];[x1 = TRUE, x2 = TRUE, x3 = TRUE];...",Negative
+!(x1 & !x2) U (F(G(x2))),"[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = TRUE];...",Positive
+!(x1 & !x2) U (F(G(x2))),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = TRUE];...",Negative
+G(x1->F(x2)),"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+G(x1->F(x2)),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+(!x1 & !x3) -> G(x2),"[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = TRUE, x3 = FALSE];[x1 = FALSE, x2 = TRUE, x3 = FALSE];...",Positive
+(!x1 & !x3) -> G(x2),"[x1 = FALSE, x2 = TRUE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = TRUE, x3 = FALSE];[x1 = FALSE, x2 = TRUE, x3 = FALSE];...",Negative
+G(x2) & F(x1) & F(!x1),"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = TRUE];...",Positive
+G(x2) & F(x1) & F(!x1),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = TRUE];...",Negative
+G(X(x1) -> (x2 & !X(x2))),"[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];...",Positive
+G(X(x1) -> (x2 & !X(x2))),"[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];...",Negative
+G(x1<->X(X(X(X(X(x1)))))),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];[x1 = FALSE];[x1 = FALSE];...,Positive
+G(x1<->X(X(X(X(X(x1)))))),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];[x1 = FALSE];[x1 = FALSE];[x1 = FALSE];...,Negative
+G(!x1) | G(F(x1)),[x1 = TRUE];[x1 = TRUE];...,Positive
+G(!x1) | G(F(x1)),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Negative
+G((x1->(!x & X(x2)) ) & (x2->(!x1 & X(x1)))),"[x = TRUE, x1 = FALSE, x2 = TRUE];[x = FALSE, x1 = TRUE, x2 = FALSE];...",Positive
+G((x1->(!x & X(x2)) ) & (x2->(!x1 & X(x1)))),"[x = TRUE, x1 = TRUE, x2 = FALSE];[x = FALSE, x1 = FALSE, x2 = FALSE];[x = TRUE, x1 = TRUE, x2 = FALSE];...",Negative
+x1 & X(!x1) | !x1 & X(x1) -> x2,"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];...",Positive
+x1 & X(!x1) | !x1 & X(x1) -> x2,"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+F(x1 & X(F(x1 & G(!x1)))),TRUE,Positive
+F(x1 & X(F(x1 & G(!x1)))),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Negative
+F(!x2 & !x3 -> G(x1)),"[x1 = FALSE, x2 = TRUE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];...",Positive
+F(!x2 & !x3 -> G(x1)),"[x1 = FALSE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];...",Negative
+G(x1->!(x2 & x3) & ((x2 | x3)->!x1)),"[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];...",Positive
+G(x1->!(x2 & x3) & ((x2 | x3)->!x1)),"[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];...",Negative
+G(F(x1) U (!x2) & X(x3)),"[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = TRUE];[x1 = FALSE, x2 = FALSE, x3 = TRUE];...",Positive
+G(F(x1) U (!x2) & X(x3)),"[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = TRUE, x3 = FALSE];[x1 = FALSE, x2 = TRUE, x3 = FALSE];...",Negative
+G(x1 -> X(x2)),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];...",Positive
+G(x1 -> X(x2)),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+G(X(x1) & G(F(x1))),[x1 = FALSE];[x1 = TRUE];[x1 = TRUE];...,Positive
+G(X(x1) & G(F(x1))),[x1 = FALSE];[x1 = FALSE];...,Negative
+X(X(X(X(X(x1 & x2))))) | X(X(X(x3))),"[x1 = FALSE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];...",Positive
+X(X(X(X(X(x1 & x2))))) | X(X(X(x3))),"[x1 = FALSE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];...",Negative
+x1 U (!x2 & x3),"[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = TRUE];[x1 = FALSE, x2 = TRUE, x3 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = FALSE];...",Positive
+x1 U (!x2 & x3),"[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = FALSE];...",Negative
+x1 U (x2 & x3),"[x1 = TRUE, x2 = TRUE, x3 = TRUE];[x1 = FALSE, x2 = TRUE, x3 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = TRUE];...",Positive
+x1 U (x2 & x3),"[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = FALSE];...",Negative
+G(x1 ->X(X(!x2))),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];...",Positive
+G(x1 ->X(X(!x2))),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = TRUE];...",Negative
+x1 -> F(x2),"[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+x1 -> F(x2),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+G(x1 -> (X(!x1) & X(X(x1)))),[x1 = TRUE];[x1 = FALSE];...,Positive
+G(x1 -> (X(!x1) & X(X(x1)))),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Negative
+"G!(x1 & x2 & x3 ) & 
+G!(!x1 & !x2 & !x3 ) &
+G((x1 & x2 & !x3 )| (x1 & !x2 & x3 )| (!x1 & x2 & x3 )| (!x1 & !x2 & x3 )| (!x1 & x2 & !x3 )| (x1 & !x2 & !x3 )) & 
+G((x1 & x2 & !x3 )->X((!x1 & x2 & x3 )| (x1 & !x2 & x3 ))) &G((x1 & !x2 & x3 )->X((!x1 & x2 & x3 )| (x1 & x2 & !x3 ))) &
+G((!x1 & x2 & x3 )->X((x1 & !x2 & x3 )| (!x1 & !x2 & x3 ))) &
+G((!x1 & x2 & !x3 )->X((x1 & !x2 & x3 )| (x1 & x2 & !x3 ))) & 
+G((x1 & !x2 & !x3 )->X((x1 & x2 & !x3 )| (!x1 & x2 & x3 )))",[x1 = TRUE];[x1 = FALSE];...,Positive
+"G!(x1 & x2 & x3 ) & 
+G!(!x1 & !x2 & !x3 ) &
+G((x1 & x2 & !x3 )| (x1 & !x2 & x3 )| (!x1 & x2 & x3 )| (!x1 & !x2 & x3 )| (!x1 & x2 & !x3 )| (x1 & !x2 & !x3 )) & 
+G((x1 & x2 & !x3 )->X((!x1 & x2 & x3 )| (x1 & !x2 & x3 ))) &G((x1 & !x2 & x3 )->X((!x1 & x2 & x3 )| (x1 & x2 & !x3 ))) &
+G((!x1 & x2 & x3 )->X((x1 & !x2 & x3 )| (!x1 & !x2 & x3 ))) &
+G((!x1 & x2 & !x3 )->X((x1 & !x2 & x3 )| (x1 & x2 & !x3 ))) & 
+G((x1 & !x2 & !x3 )->X((x1 & x2 & !x3 )| (!x1 & x2 & x3 )))",[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Negative
+G (x3 <-> (X(x1 & x2) & F(x1 & x2))),"[x1 = FALSE, x2 = FALSE, x3 = TRUE];[x1 = TRUE, x2 = TRUE, x3 = TRUE];[x1 = TRUE, x2 = TRUE, x3 = FALSE];...",Positive
+G (x3 <-> (X(x1 & x2) & F(x1 & x2))),"[x1 = FALSE, x2 = FALSE, x3 = TRUE];[x1 = FALSE, x2 = FALSE, x3 = TRUE];...",Negative
+(x1 U x2) & G(x2 -> F (!x1)),"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];...",Positive
+(x1 U x2) & G(x2 -> F (!x1)),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = TRUE];...",Negative
+G(x1 ->F(x2)) & G(!x3 U (x1 & x2)),"[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = FALSE];...",Positive
+G(x1 ->F(x2)) & G(!x3 U (x1 & x2)),"[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = TRUE];[x1 = FALSE, x2 = FALSE, x3 = TRUE];...",Negative
+F(x1 & x2) -> (!x1 U x1) & F(x2)->F(x1),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+F(x1 & x2) -> (!x1 U x1) & F(x2)->F(x1),TRUE,Negative
+G(x1->X(x2)) & G(x2->X(x3)) & G(x3->X(x1)),"[x1 = TRUE, x2 = TRUE, x3 = TRUE];[x1 = TRUE, x2 = TRUE, x3 = TRUE];...",Positive
+G(x1->X(x2)) & G(x2->X(x3)) & G(x3->X(x1)),"[x1 = TRUE, x2 = TRUE, x3 = TRUE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];...",Negative
+F(x1)->(x2 U x1) & G(x3),"[x1 = TRUE, x2 = FALSE, x3 = TRUE];[x1 = FALSE, x2 = FALSE, x3 = TRUE];[x1 = TRUE, x2 = FALSE, x3 = TRUE];...",Positive
+F(x1)->(x2 U x1) & G(x3),"[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = TRUE, x3 = TRUE];[x1 = FALSE, x2 = TRUE, x3 = TRUE];...",Negative
+G(x1->F(x3 & F(x2))),"[x1 = TRUE, x2 = TRUE, x3 = TRUE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];...",Positive
+G(x1->F(x3 & F(x2))),"[x1 = TRUE, x2 = TRUE, x3 = TRUE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];...",Negative
+G((x1->!x2) & X(!x1->X(x2))),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Positive
+G((x1->!x2) & X(!x1->X(x2))),"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+x1 & x2 & x3 -> X(G(x4)),"[x1 = TRUE, x2 = TRUE, x3 = TRUE, x4 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = FALSE, x4 = TRUE];[x1 = FALSE, x2 = FALSE, x3 = FALSE, x4 = TRUE];...",Positive
+x1 & x2 & x3 -> X(G(x4)),"[x1 = TRUE, x2 = TRUE, x3 = TRUE, x4 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = TRUE, x4 = FALSE];...",Negative
+G(x1->(X(!x2) & X(x3) & X(X(!x3)))),"[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = TRUE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];...",Positive
+G(x1->(X(!x2) & X(x3) & X(X(!x3)))),"[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = TRUE, x3 = TRUE];[x1 = FALSE, x2 = FALSE, x3 = TRUE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];...",Negative
+G((x1 U !x1) & (!x1 U x1)),[x1 = FALSE];[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Positive
+G((x1 U !x1) & (!x1 U x1)),[x1 = FALSE];[x1 = FALSE];...,Negative
+G(!x1) -> ((x2 -> X(!x2 & x3)) & (x3 ->X(!x3 & x2))),"[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = TRUE, x3 = TRUE];[x1 = FALSE, x2 = TRUE, x3 = TRUE];...",Positive
+G(!x1) -> ((x2 -> X(!x2 & x3)) & (x3 ->X(!x3 & x2))),"[x1 = FALSE, x2 = TRUE, x3 = TRUE];[x1 = FALSE, x2 = TRUE, x3 = TRUE];...",Negative
+x1 & x2 & x3 -> F(x1) & F(x2) & F(x3),"[x1 = FALSE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];...",Positive
+x1 & x2 & x3 -> F(x1) & F(x2) & F(x3),TRUE,Negative
+G(X(!x1->((x2 & X(!x2)) & (!x3 & X(x3))))),"[x1 = FALSE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = FALSE];...",Positive
+G(X(!x1->((x2 & X(!x2)) & (!x3 & X(x3))))),"[x1 = FALSE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = TRUE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];...",Negative
+G(F(x1) -> (F(x1) | F(G(x1)))),[x1 = FALSE];[x1 = TRUE];[x1 = TRUE];...,Positive
+G(F(x1) -> (F(x1) | F(G(x1)))),TRUE,Negative
+G((x3->!x1 & x2) & ((x1 & x2) -> x3) & F(x1 & x2 & x3)),TRUE,Positive
+G((x3->!x1 & x2) & ((x1 & x2) -> x3) & F(x1 & x2 & x3)),"[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = FALSE];...",Negative
+G(x1) -> G(x2) U (!x3),"[x1 = FALSE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = TRUE];[x1 = TRUE, x2 = TRUE, x3 = TRUE];...",Positive
+G(x1) -> G(x2) U (!x3),"[x1 = TRUE, x2 = TRUE, x3 = TRUE];[x1 = TRUE, x2 = TRUE, x3 = TRUE];...",Negative
+G (F(x2 & x3) & (X (x2 -> X(x1))) & G(x4 U x1) & F(x2)),"[x1 = TRUE, x2 = FALSE, x3 = FALSE, x4 = FALSE];[x1 = FALSE, x2 = TRUE, x3 = FALSE, x4 = TRUE];[x1 = TRUE, x2 = TRUE, x3 = FALSE, x4 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = TRUE, x4 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE, x4 = FALSE];...",Positive
+G (F(x2 & x3) & (X (x2 -> X(x1))) & G(x4 U x1) & F(x2)),"[x1 = TRUE, x2 = FALSE, x3 = FALSE, x4 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE, x4 = FALSE];...",Negative
+G(!x1 -> X(x1)),[x1 = TRUE];[x1 = FALSE];...,Positive
+G(!x1 -> X(x1)),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];[x1 = TRUE];...,Negative
+G(x1 -> G(x2)),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = TRUE];...",Positive
+G(x1 -> G(x2)),"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = TRUE];...",Negative
+!x1 U F(x1) & X(G(!x1)),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Positive
+!x1 U F(x1) & X(G(!x1)),[x1 = TRUE];[x1 = TRUE];...,Negative
+G(x1-> !(x2 & x3)),"[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = FALSE];...",Positive
+G(x1-> !(x2 & x3)),"[x1 = TRUE, x2 = TRUE, x3 = TRUE];[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = FALSE];...",Negative
+G((x1->x2 U x3) & (x2->x3)),"[x1 = TRUE, x2 = FALSE, x3 = TRUE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = TRUE];...",Positive
+G((x1->x2 U x3) & (x2->x3)),"[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];...",Negative
+X(x1)->F(x2),"[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+X(x1)->F(x2),"[x1 = FALSE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+G(x1) & X(X(!x2)),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];...",Positive
+G(x1) & X(X(!x2)),"[x1 = FALSE, x2 = FALSE];[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = TRUE];...",Negative
+G(x1 U F(x2)),"[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];...",Positive
+G(x1 U F(x2)),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+F(x1) -> F(x2),"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+F(x1) -> F(x2),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+G(x1 & x2) -> F(x3),"[x1 = FALSE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = FALSE];...",Positive
+G(x1 & x2) -> F(x3),"[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = FALSE];...",Negative
+G(x1 -> (F(x2) & F(x3))),"[x1 = TRUE, x2 = TRUE, x3 = TRUE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];...",Positive
+G(x1 -> (F(x2) & F(x3))),"[x1 = TRUE, x2 = TRUE, x3 = TRUE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];...",Negative
+G((x1->!x3) U (!x1->x3)),"[x1 = FALSE, x3 = FALSE];[x1 = TRUE, x3 = FALSE];[x1 = FALSE, x3 = FALSE];...",Positive
+G((x1->!x3) U (!x1->x3)),"[x1 = FALSE, x3 = FALSE];[x1 = FALSE, x3 = FALSE];...",Negative
+G(x1->X(!x1) | !x1->X(x1)),[x1 = TRUE];[x1 = TRUE];...,Positive
+G(x1->X(!x1) | !x1->X(x1)),[x1 = TRUE];[x1 = FALSE];...,Negative
+X(x1) | G(x1),[x1 = FALSE];[x1 = TRUE];[x1 = TRUE];...,Positive
+X(x1) | G(x1),[x1 = FALSE];[x1 = FALSE];...,Negative
+G(x1 U (x2 | x3) & F(x3)),"[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = TRUE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];...",Positive
+G(x1 U (x2 | x3) & F(x3)),"[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];...",Negative
+G((x1 & x2) ->X(x3)) & F(x3),"[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = TRUE];[x1 = TRUE, x2 = FALSE, x3 = TRUE];[x1 = TRUE, x2 = TRUE, x3 = FALSE];...",Positive
+G((x1 & x2) ->X(x3)) & F(x3),"[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = FALSE];...",Negative
+G(!x2) | G(x2 U x1),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Positive
+G(!x2) | G(x2 U x1),"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+x1 & x2 & X(x3),"[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = TRUE];...",Positive
+x1 & x2 & X(x3),"[x1 = FALSE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];...",Negative
+G(F(x1 & x2)),"[x1 = FALSE, x2 = FALSE];[x1 = TRUE, x2 = TRUE];...",Positive
+G(F(x1 & x2)),"[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+G (x1 ->(X(!x1) & X(X(x1)))),[x1 = TRUE];[x1 = FALSE];...,Positive
+G (x1 ->(X(!x1) & X(X(x1)))),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Negative
+( !x1) U (x1 & X(G (!x1))),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Positive
+( !x1) U (x1 & X(G (!x1))),[x1 = TRUE];[x1 = TRUE];...,Negative
+!F(x1 & X(x1 ) & X(X(x1))),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Positive
+!F(x1 & X(x1 ) & X(X(x1))),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];[x1 = TRUE];[x1 = TRUE];[x1 = TRUE];[x1 = FALSE];...,Negative
+G (x1 -> F(x2)),"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+G (x1 -> F(x2)),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+(x1) U (G(!x1)),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Positive
+(x1) U (G(!x1)),[x1 = TRUE];[x1 = TRUE];...,Negative
+G(x1 -> X(!x1) & X(X(x1))),[x1 = TRUE];[x1 = FALSE];...,Positive
+G(x1 -> X(!x1) & X(X(x1))),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Negative
+F(x1) & G(x1 -> X(G(!x1))),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Positive
+F(x1) & G(x1 -> X(G(!x1))),[x1 = TRUE];[x1 = TRUE];[x1 = FALSE];...,Negative
+G(x1 & X(x1) -> X(X(!x1))),[x1 = TRUE];[x1 = TRUE];[x1 = FALSE];...,Positive
+G(x1 & X(x1) -> X(X(!x1))),[x1 = TRUE];[x1 = TRUE];...,Negative
+G(x1 -> x2 | F(x2)),"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+G(x1 -> x2 | F(x2)),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+F(!x1) & G(!x1 -> X(G(!x1))),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Positive
+F(!x1) & G(!x1 -> X(G(!x1))),[x1 = TRUE];[x1 = FALSE];[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Negative
+F (x1 & F (x2)) & F (x3 & (!x3 U x2)),"[x1 = TRUE, x2 = TRUE, x3 = TRUE];[x1 = TRUE, x2 = FALSE, x3 = TRUE];[x1 = FALSE, x2 = FALSE, x3 = TRUE];[x1 = FALSE, x2 = TRUE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = TRUE];[x1 = FALSE, x2 = FALSE, x3 = TRUE];[x1 = FALSE, x2 = TRUE, x3 = FALSE];...",Positive
+F (x1 & F (x2)) & F (x3 & (!x3 U x2)),"[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = TRUE];[x1 = FALSE, x2 = FALSE, x3 = TRUE];...",Negative
+G(x1 -> (X(x2) & G(X(X(x3))))),"[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = TRUE];[x1 = TRUE, x2 = TRUE, x3 = TRUE];...",Positive
+G(x1 -> (X(x2) & G(X(X(x3))))),"[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = TRUE];...",Negative
+F(x1),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Positive
+F(x1),[x1 = FALSE];[x1 = FALSE];...,Negative
+F(x1) & F(x2),"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+F(x1) & F(x2),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+F(x1) & G(!x2),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+F(x1) & G(!x2),"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+F(x1 | x2) & F(x3),"[x1 = TRUE, x2 = FALSE, x3 = TRUE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];...",Positive
+F(x1 | x2) & F(x3),"[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];...",Negative
+F(x1),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Positive
+F(x1),[x1 = FALSE];[x1 = FALSE];...,Negative
+F(x1) & F(x2),"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+F(x1) & F(x2),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+G (!x1) & F(x2),"[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+G (!x1) & F(x2),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+F(x1) & G(x2),"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = TRUE];...",Positive
+F(x1) & G(x2),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = TRUE];...",Negative
+b -> X((c U a) | (G(c))),"[a = FALSE, b = TRUE, c = FALSE];[a = TRUE, b = FALSE, c = TRUE];[a = FALSE, b = FALSE, c = TRUE];[a = FALSE, b = FALSE, c = TRUE];...",Positive
+b -> X((c U a) | (G(c))),"[a = FALSE, b = TRUE, c = FALSE];[a = FALSE, b = TRUE, c = FALSE];...",Negative
+(F(b) -> (!b U (a & !b))),"[a = TRUE, b = FALSE];[a = FALSE, b = FALSE];[a = FALSE, b = FALSE];...",Positive
+(F(b) -> (!b U (a & !b))),"[a = TRUE, b = TRUE];[a = FALSE, b = FALSE];[a = FALSE, b = FALSE];...",Negative
+G( a | b | c),"[a = TRUE, b = FALSE, c = FALSE];[a = TRUE, b = FALSE, c = FALSE];...",Positive
+G( a | b | c),"[a = TRUE, b = FALSE, c = FALSE];[a = FALSE, b = FALSE, c = FALSE];[a = TRUE, b = FALSE, c = FALSE];[a = TRUE, b = FALSE, c = FALSE];...",Negative
+G(a -> F(e)),"[a = TRUE, e = TRUE];[a = FALSE, e = FALSE];[a = FALSE, e = FALSE];...",Positive
+G(a -> F(e)),"[a = TRUE, e = TRUE];[a = TRUE, e = FALSE];[a = FALSE, e = FALSE];[a = FALSE, e = FALSE];...",Negative
+G(!(a & b)),"[a = TRUE, b = FALSE];[a = TRUE, b = FALSE];...",Positive
+G(!(a & b)),"[a = TRUE, b = TRUE];[a = TRUE, b = FALSE];[a = TRUE, b = FALSE];...",Negative
+G(a -> X(X(X b))),"[a = TRUE, b = FALSE];[a = FALSE, b = FALSE];[a = FALSE, b = FALSE];[a = FALSE, b = TRUE];...",Positive
+G(a -> X(X(X b))),"[a = TRUE, b = FALSE];[a = TRUE, b = FALSE];...",Negative
+G(e U (G(F(d)))),"[d = FALSE, e = FALSE];[d = TRUE, e = FALSE];[d = FALSE, e = FALSE];...",Positive
+G(e U (G(F(d)))),"[d = FALSE, e = TRUE];[d = FALSE, e = TRUE];...",Negative
+G(a -> b),"[a = TRUE, b = TRUE];[a = TRUE, b = TRUE];...",Positive
+G(a -> b),"[a = TRUE, b = FALSE];[a = TRUE, b = TRUE];[a = TRUE, b = TRUE];...",Negative
+G(a & b),"[a = TRUE, b = TRUE];[a = TRUE, b = TRUE];...",Positive
+G(a & b),"[a = FALSE, b = FALSE];[a = TRUE, b = TRUE];[a = TRUE, b = TRUE];...",Negative
+G(a) & G(b -> !c),"[a = TRUE, b = TRUE, c = FALSE];[a = TRUE, b = TRUE, c = FALSE];...",Positive
+G(a) & G(b -> !c),"[a = FALSE, b = FALSE, c = FALSE];[a = TRUE, b = TRUE, c = FALSE];[a = TRUE, b = TRUE, c = FALSE];...",Negative
+G(a -> F (b)) -> G(F(c)),"[a = TRUE, b = TRUE, c = FALSE];[a = TRUE, b = FALSE, c = FALSE];[a = FALSE, b = FALSE, c = FALSE];[a = FALSE, b = FALSE, c = FALSE];...",Positive
+G(a -> F (b)) -> G(F(c)),"[a = TRUE, b = TRUE, c = FALSE];[a = FALSE, b = FALSE, c = FALSE];[a = FALSE, b = FALSE, c = FALSE];...",Negative
+G(F(a)) -> G(F(b)),"[a = FALSE, b = FALSE];[a = FALSE, b = FALSE];...",Positive
+G(F(a)) -> G(F(b)),"[a = FALSE, b = FALSE];[a = TRUE, b = FALSE];[a = FALSE, b = FALSE];...",Negative
+G(F(a)) | G(F(b)),"[a = FALSE, b = FALSE];[a = FALSE, b = TRUE];[a = FALSE, b = FALSE];...",Positive
+G(F(a)) | G(F(b)),"[a = FALSE, b = FALSE];[a = FALSE, b = FALSE];...",Negative
+F(G(!a)),[a = FALSE];[a = FALSE];...,Positive
+F(G(!a)),[a = FALSE];[a = TRUE];...,Negative
+G (!(a & b) -> F(c)),"[a = TRUE, b = TRUE, c = FALSE];[a = TRUE, b = TRUE, c = FALSE];...",Positive
+G (!(a & b) -> F(c)),"[a = TRUE, b = TRUE, c = FALSE];[a = TRUE, b = FALSE, c = FALSE];[a = TRUE, b = TRUE, c = FALSE];[a = TRUE, b = TRUE, c = FALSE];...",Negative
+G(!(a & b)) & G(a | b),"[a = TRUE, b = FALSE];[a = TRUE, b = FALSE];...",Positive
+G(!(a & b)) & G(a | b),"[a = TRUE, b = TRUE];[a = TRUE, b = FALSE];[a = TRUE, b = FALSE];...",Negative
+G ((a <-> b) -> (c <-> d)),"[a = TRUE, b = TRUE, c = TRUE, d = TRUE];[a = TRUE, b = TRUE, c = TRUE, d = TRUE];...",Positive
+G ((a <-> b) -> (c <-> d)),"[a = TRUE, b = TRUE, c = TRUE, d = FALSE];[a = TRUE, b = TRUE, c = TRUE, d = TRUE];[a = TRUE, b = TRUE, c = TRUE, d = TRUE];...",Negative
+(!a) U b,"[a = TRUE, b = TRUE];[a = TRUE, b = FALSE];[a = TRUE, b = TRUE];...",Positive
+(!a) U b,"[a = TRUE, b = FALSE];[a = TRUE, b = FALSE];...",Negative
+G (a -> X(G(!b))),"[a = TRUE, b = FALSE];[a = TRUE, b = FALSE];...",Positive
+G (a -> X(G(!b))),"[a = TRUE, b = FALSE];[a = TRUE, b = TRUE];[a = FALSE, b = FALSE];[a = FALSE, b = FALSE];...",Negative
+(b U (b & ! a)) | G(b),"[a = TRUE, b = TRUE];[a = FALSE, b = TRUE];[a = TRUE, b = TRUE];[a = TRUE, b = TRUE];...",Positive
+(b U (b & ! a)) | G(b),"[a = TRUE, b = FALSE];[a = TRUE, b = TRUE];[a = TRUE, b = TRUE];...",Negative
+G !(a & b),"[a = TRUE, b = FALSE];[a = TRUE, b = FALSE];...",Positive
+G !(a & b),"[a = TRUE, b = TRUE];[a = TRUE, b = FALSE];[a = TRUE, b = FALSE];...",Negative
+G (a & X(b) -> X(X(c))),"[a = TRUE, b = FALSE, c = FALSE];[a = TRUE, b = FALSE, c = FALSE];...",Positive
+G (a & X(b) -> X(X(c))),"[a = TRUE, b = FALSE, c = FALSE];[a = TRUE, b = FALSE, c = FALSE];[a = TRUE, b = TRUE, c = FALSE];[a = FALSE, b = TRUE, c = FALSE];[a = FALSE, b = FALSE, c = TRUE];[a = TRUE, b = TRUE, c = FALSE];...",Negative
+G (a -> X(F(b))),"[a = TRUE, b = FALSE];[a = TRUE, b = TRUE];[a = TRUE, b = FALSE];...",Positive
+G (a -> X(F(b))),"[a = TRUE, b = FALSE];[a = TRUE, b = FALSE];...",Negative
+a & G(a -> X(!a) & X(X(!a)) & X(X(X(!a))) & X(X(X(X(!a)))) & X(X(X(X(X(a)))))),[a = TRUE];[a = FALSE];[a = FALSE];[a = FALSE];[a = FALSE];...,Positive
+a & G(a -> X(!a) & X(X(!a)) & X(X(X(!a))) & X(X(X(X(!a)))) & X(X(X(X(X(a)))))),[a = TRUE];[a = FALSE];[a = FALSE];[a = FALSE];[a = FALSE];[a = FALSE];...,Negative
+G(F(a)) | X(b),"[a = FALSE, b = FALSE];[a = FALSE, b = TRUE];[a = FALSE, b = FALSE];...",Positive
+G(F(a)) | X(b),"[a = FALSE, b = FALSE];[a = FALSE, b = FALSE];...",Negative
+G (a),[a = TRUE];[a = TRUE];...,Positive
+G (a),[a = FALSE];[a = TRUE];[a = TRUE];...,Negative
+G (a -> (b | X(b))),"[a = TRUE, b = TRUE];[a = FALSE, b = FALSE];...",Positive
+G (a -> (b | X(b))),"[a = TRUE, b = TRUE];[a = TRUE, b = FALSE];[a = TRUE, b = FALSE];[a = FALSE, b = TRUE];[a = TRUE, b = FALSE];...",Negative
+G (a -> F(b)),"[a = TRUE, b = TRUE];[a = FALSE, b = FALSE];[a = FALSE, b = FALSE];...",Positive
+G (a -> F(b)),"[a = TRUE, b = TRUE];[a = TRUE, b = FALSE];[a = FALSE, b = FALSE];[a = FALSE, b = FALSE];...",Negative
+G(a | X(a) | X(X(a))),[a = TRUE];[a = FALSE];[a = FALSE];...,Positive
+G(a | X(a) | X(X(a))),[a = TRUE];[a = FALSE];[a = FALSE];[a = FALSE];[a = TRUE];...,Negative
+G(!a -> (X(!a) | X(X(a)))),[a = TRUE];[a = FALSE];[a = FALSE];[a = TRUE];...,Positive
+G(!a -> (X(!a) | X(X(a)))),[a = TRUE];[a = FALSE];[a = FALSE];[a = TRUE];[a = FALSE];[a = FALSE];[a = TRUE];...,Negative
+G(a -> (X(!a) | X(X(!a)) | X(X(X(a))))),[a = TRUE];[a = FALSE];[a = FALSE];[a = FALSE];...,Positive
+G(a -> (X(!a) | X(X(!a)) | X(X(X(a))))),[a = TRUE];[a = FALSE];[a = FALSE];[a = FALSE];[a = TRUE];[a = TRUE];[a = TRUE];[a = FALSE];[a = FALSE];...,Negative
+G ( a -> X(b)),"[a = TRUE, b = FALSE];[a = FALSE, b = TRUE];...",Positive
+G ( a -> X(b)),"[a = TRUE, b = FALSE];[a = TRUE, b = FALSE];...",Negative
+F (a & b),"[a = TRUE, b = TRUE];[a = TRUE, b = FALSE];[a = TRUE, b = FALSE];...",Positive
+F (a & b),"[a = TRUE, b = FALSE];[a = TRUE, b = FALSE];...",Negative
+F(a) & F(b),"[a = TRUE, b = TRUE];[a = FALSE, b = FALSE];[a = FALSE, b = FALSE];...",Positive
+F(a) & F(b),"[a = TRUE, b = FALSE];[a = FALSE, b = FALSE];[a = FALSE, b = FALSE];...",Negative
+G(a <-> X(b)),"[a = TRUE, b = FALSE];[a = FALSE, b = TRUE];...",Positive
+G(a <-> X(b)),"[a = TRUE, b = FALSE];[a = TRUE, b = FALSE];...",Negative
+(a U b) | G(a),"[a = TRUE, b = TRUE];[a = TRUE, b = FALSE];[a = TRUE, b = FALSE];...",Positive
+(a U b) | G(a),"[a = TRUE, b = FALSE];[a = FALSE, b = FALSE];[a = TRUE, b = FALSE];[a = TRUE, b = FALSE];...",Negative
+G(x2 -> x1),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Positive
+G(x2 -> x1),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+G(x1 <-> x2),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = TRUE];...",Positive
+G(x1 <-> x2),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = TRUE];...",Negative
+G(a -> (c U b)),"[a = TRUE, b = TRUE, c = FALSE];[a = FALSE, b = FALSE, c = FALSE];[a = TRUE, b = TRUE, c = FALSE];...",Positive
+G(a -> (c U b)),"[a = TRUE, b = TRUE, c = FALSE];[a = TRUE, b = FALSE, c = FALSE];[a = FALSE, b = FALSE, c = TRUE];[a = FALSE, b = FALSE, c = TRUE];...",Negative
+G(x1 -> F(x2)),"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+G(x1 -> F(x2)),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+G(!(a & b)) & G(a | b),"[a = TRUE, b = FALSE];[a = TRUE, b = FALSE];...",Positive
+G(!(a & b)) & G(a | b),"[a = TRUE, b = TRUE];[a = TRUE, b = FALSE];[a = TRUE, b = FALSE];...",Negative
+(!a) U b,"[a = TRUE, b = TRUE];[a = TRUE, b = FALSE];[a = TRUE, b = TRUE];...",Positive
+(!a) U b,"[a = TRUE, b = FALSE];[a = TRUE, b = FALSE];...",Negative
+(a U b) | G(a),"[a = TRUE, b = TRUE];[a = TRUE, b = FALSE];[a = TRUE, b = FALSE];...",Positive
+(a U b) | G(a),"[a = TRUE, b = FALSE];[a = FALSE, b = FALSE];[a = TRUE, b = FALSE];[a = TRUE, b = FALSE];...",Negative
+!p U (p U (!p U (p U G(!p)))),[p = TRUE];[p = FALSE];[p = FALSE];...,Positive
+!p U (p U (!p U (p U G(!p)))),[p = TRUE];[p = TRUE];...,Negative
+G!(x1 & x2),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Positive
+G!(x1 & x2),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+G!(x1 & x2),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Positive
+G!(x1 & x2),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+G!(x1 & (x2 | x3 | x4)),"[x1 = TRUE, x2 = FALSE, x3 = FALSE, x4 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE, x4 = FALSE];...",Positive
+G!(x1 & (x2 | x3 | x4)),"[x1 = TRUE, x2 = TRUE, x3 = FALSE, x4 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE, x4 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE, x4 = FALSE];...",Negative
+G!(x1 & (x2 | x1)),"[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+G!(x1 & (x2 | x1)),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+G!(x1 & x2),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Positive
+G!(x1 & x2),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+G!(x1 & x2),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Positive
+G!(x1 & x2),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+x1 -> X(x2 U (x3 & x4)),"[x1 = FALSE, x2 = FALSE, x3 = FALSE, x4 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = FALSE, x4 = FALSE];...",Positive
+x1 -> X(x2 U (x3 & x4)),"[x1 = TRUE, x2 = FALSE, x3 = FALSE, x4 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE, x4 = FALSE];...",Negative
+F(x1 -> F(!x1)),[x1 = TRUE];[x1 = FALSE];...,Positive
+F(x1 -> F(!x1)),[x1 = TRUE];[x1 = TRUE];...,Negative
+(r U b) & G(r),"[b = TRUE, r = TRUE];[b = FALSE, r = TRUE];[b = FALSE, r = TRUE];...",Positive
+(r U b) & G(r),"[b = TRUE, r = FALSE];[b = FALSE, r = TRUE];[b = FALSE, r = TRUE];...",Negative
+r & !X(b),"[b = FALSE, r = TRUE];[b = FALSE, r = TRUE];...",Positive
+r & !X(b),"[b = FALSE, r = FALSE];[b = FALSE, r = FALSE];...",Negative
+G(r -> X(!r & X(r))),[r = TRUE];[r = FALSE];...,Positive
+G(r -> X(!r & X(r))),[r = TRUE];[r = FALSE];[r = FALSE];...,Negative
+(r U b) & G(r),"[b = TRUE, r = TRUE];[b = FALSE, r = TRUE];[b = FALSE, r = TRUE];...",Positive
+(r U b) & G(r),"[b = TRUE, r = FALSE];[b = FALSE, r = TRUE];[b = FALSE, r = TRUE];...",Negative
+r & !X(b),"[b = FALSE, r = TRUE];[b = FALSE, r = TRUE];...",Positive
+r & !X(b),"[b = FALSE, r = FALSE];[b = FALSE, r = FALSE];...",Negative
+G(!r),[r = FALSE];[r = FALSE];...,Positive
+G(!r),[r = TRUE];[r = FALSE];[r = FALSE];...,Negative
+G(x1 -> X(!x1) & X(X(x1))),[x1 = TRUE];[x1 = FALSE];...,Positive
+G(x1 -> X(!x1) & X(X(x1))),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Negative
+(!x1) U (x1 & X(G(!x1))),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Positive
+(!x1) U (x1 & X(G(!x1))),[x1 = TRUE];[x1 = TRUE];...,Negative
+!F(x1 & X(x1) & X(X(x1))),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Positive
+!F(x1 & X(x1) & X(X(x1))),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];[x1 = TRUE];[x1 = TRUE];[x1 = TRUE];[x1 = FALSE];...,Negative
+G(x1-> F(x2)),"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+G(x1-> F(x2)),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+(r U !r) & (G(!r -> G(!r))),[r = TRUE];[r = FALSE];[r = FALSE];...,Positive
+(r U !r) & (G(!r -> G(!r))),[r = TRUE];[r = FALSE];[r = TRUE];[r = FALSE];[r = FALSE];...,Negative
+G(F(r)),[r = FALSE];[r = TRUE];...,Positive
+G(F(r)),[r = FALSE];[r = FALSE];...,Negative
+x1 -> X(X(X(x1))),[x1 = FALSE];[x1 = FALSE];...,Positive
+x1 -> X(X(X(x1))),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];[x1 = FALSE];...,Negative
+X(X(F(X(r)))),[r = FALSE];[r = FALSE];[r = TRUE];[r = TRUE];[r = FALSE];...,Positive
+X(X(F(X(r)))),[r = FALSE];[r = FALSE];...,Negative
+F(r) -> G(b),"[b = TRUE, r = TRUE];[b = TRUE, r = FALSE];[b = TRUE, r = FALSE];...",Positive
+F(r) -> G(b),"[b = TRUE, r = TRUE];[b = FALSE, r = FALSE];[b = TRUE, r = FALSE];[b = TRUE, r = FALSE];...",Negative
+(r U b) & G(r),"[b = TRUE, r = TRUE];[b = FALSE, r = TRUE];[b = FALSE, r = TRUE];...",Positive
+(r U b) & G(r),"[b = TRUE, r = FALSE];[b = FALSE, r = TRUE];[b = FALSE, r = TRUE];...",Negative
+G(r -> X(!r) & X(X(r))),[r = TRUE];[r = FALSE];...,Positive
+G(r -> X(!r) & X(X(r))),[r = TRUE];[r = FALSE];[r = FALSE];...,Negative
+G(r -> !X(g)),"[g = FALSE, r = TRUE];[g = FALSE, r = TRUE];...",Positive
+G(r -> !X(g)),"[g = FALSE, r = TRUE];[g = FALSE, r = TRUE];[g = TRUE, r = TRUE];[g = FALSE, r = FALSE];[g = TRUE, r = TRUE];...",Negative
+F(b & X(F(b))),[b = TRUE];[b = TRUE];[b = FALSE];...,Positive
+F(b & X(F(b))),[b = TRUE];[b = FALSE];[b = FALSE];...,Negative
+x1 & G(x1 -> X(!x1 & X(x1))),[x1 = TRUE];[x1 = FALSE];...,Positive
+x1 & G(x1 -> X(!x1 & X(x1))),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Negative
+!x1 U (x1 & G(!X(x1))),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Positive
+!x1 U (x1 & G(!X(x1))),[x1 = TRUE];[x1 = FALSE];[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Negative
+G((!x1 | x2) -> X(!x3)),"[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = FALSE];...",Positive
+G((!x1 | x2) -> X(!x3)),"[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = TRUE];...",Negative
+G(x1 -> F(x2)),"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+G(x1 -> F(x2)),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+G(x1 -> X(x2)),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];...",Positive
+G(x1 -> X(x2)),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+G(x1 -> F(x2)),"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+G(x1 -> F(x2)),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+G(x1 & !x2),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Positive
+G(x1 & !x2),"[x1 = FALSE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+(x1 & !x2) -> X(x1),"[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+(x1 & !x2) -> X(x1),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+(!x1 & x2) -> F(x3 ),"[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];...",Positive
+(!x1 & x2) -> F(x3 ),"[x1 = FALSE, x2 = TRUE, x3 = FALSE];[x1 = FALSE, x2 = TRUE, x3 = FALSE];...",Negative
+x1 -> F(x2),"[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+x1 -> F(x2),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+x1 -> F(x2),"[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+x1 -> F(x2),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+x1 -> x2,"[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+x1 -> x2,"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+x1 -> (x2 U x3),"[x1 = FALSE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];...",Positive
+x1 -> (x2 U x3),"[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = FALSE];...",Negative
+x1 -> (x2 U x3),"[x1 = FALSE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];...",Positive
+x1 -> (x2 U x3),"[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = FALSE];...",Negative
+x1 -> (x2 U x3),"[x1 = FALSE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];...",Positive
+x1 -> (x2 U x3),"[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = FALSE];...",Negative
+G (x1),[x1 = TRUE];[x1 = TRUE];...,Positive
+G (x1),[x1 = FALSE];[x1 = TRUE];[x1 = TRUE];...,Negative
+G (x1 -> G(F(x2))),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];...",Positive
+G (x1 -> G(F(x2))),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+G (F(x1)),[x1 = FALSE];[x1 = TRUE];...,Positive
+G (F(x1)),[x1 = FALSE];[x1 = FALSE];...,Negative
+G (x1 -> G(F(x2))),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];...",Positive
+G (x1 -> G(F(x2))),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+G(x1 -> G(!x2 U x3)),"[x1 = TRUE, x2 = TRUE, x3 = TRUE];[x1 = TRUE, x2 = TRUE, x3 = TRUE];...",Positive
+G(x1 -> G(!x2 U x3)),"[x1 = TRUE, x2 = TRUE, x3 = TRUE];[x1 = FALSE, x2 = TRUE, x3 = FALSE];[x1 = FALSE, x2 = TRUE, x3 = FALSE];...",Negative
+G (x1 -> G(F(x2))),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];...",Positive
+G (x1 -> G(F(x2))),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+G (x1 -> x2),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = TRUE];...",Positive
+G (x1 -> x2),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = TRUE];...",Negative
+G(x1 -> G(F(x2))),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];...",Positive
+G(x1 -> G(F(x2))),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+G ( !x2 -> !x1 ),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = TRUE];...",Positive
+G ( !x2 -> !x1 ),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = TRUE];...",Negative
+G(x1 & x2 & x3 -> (x1 U x4)),"[x1 = TRUE, x2 = TRUE, x3 = TRUE, x4 = TRUE];[x1 = FALSE, x2 = FALSE, x3 = FALSE, x4 = FALSE];...",Positive
+G(x1 & x2 & x3 -> (x1 U x4)),"[x1 = TRUE, x2 = TRUE, x3 = TRUE, x4 = TRUE];[x1 = TRUE, x2 = TRUE, x3 = TRUE, x4 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = FALSE, x4 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = FALSE, x4 = FALSE];...",Negative
+G(F(x1)) -> G(F(x2)),"[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+G(F(x1)) -> G(F(x2)),"[x1 = FALSE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+F(G(x1)),[x1 = FALSE];[x1 = TRUE];[x1 = TRUE];...,Positive
+F(G(x1)),[x1 = FALSE];[x1 = FALSE];...,Negative
+G(F(x1)),[x1 = FALSE];[x1 = TRUE];...,Positive
+G(F(x1)),[x1 = FALSE];[x1 = FALSE];...,Negative
+G!(x1 & !x2),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = TRUE];...",Positive
+G!(x1 & !x2),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = TRUE];...",Negative
+G(x1 -> F(x2)),"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+G(x1 -> F(x2)),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+G(F(x1)),[x1 = FALSE];[x1 = TRUE];...,Positive
+G(F(x1)),[x1 = FALSE];[x1 = FALSE];...,Negative
+F(G(x1)),[x1 = FALSE];[x1 = TRUE];[x1 = TRUE];...,Positive
+F(G(x1)),[x1 = FALSE];[x1 = FALSE];...,Negative
+G(F(x1)) -> G(F(x2)),"[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+G(F(x1)) -> G(F(x2)),"[x1 = FALSE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+G (x1 & x2 & x3 -> (x2 U x4)),"[x1 = TRUE, x2 = TRUE, x3 = TRUE, x4 = TRUE];[x1 = FALSE, x2 = FALSE, x3 = FALSE, x4 = FALSE];...",Positive
+G (x1 & x2 & x3 -> (x2 U x4)),"[x1 = TRUE, x2 = TRUE, x3 = TRUE, x4 = TRUE];[x1 = TRUE, x2 = TRUE, x3 = TRUE, x4 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = FALSE, x4 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = FALSE, x4 = FALSE];...",Negative
+G(F(x1)) &G(F(x2)),"[x1 = TRUE, x2 = TRUE, x3 = TRUE, x4 = TRUE];[x1 = FALSE, x2 = FALSE, x3 = FALSE, x4 = FALSE];...",Positive
+G(F(x1)) &G(F(x2)),"[x1 = TRUE, x2 = TRUE, x3 = TRUE, x4 = TRUE];[x1 = TRUE, x2 = TRUE, x3 = TRUE, x4 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = FALSE, x4 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = FALSE, x4 = FALSE];...",Negative
+(x2->X(!x2 U x1)),"[x1 = TRUE, x2 = TRUE, x3 = TRUE, x4 = TRUE];[x1 = FALSE, x2 = FALSE, x3 = FALSE, x4 = FALSE];...",Positive
+(x2->X(!x2 U x1)),"[x1 = TRUE, x2 = TRUE, x3 = TRUE, x4 = TRUE];[x1 = TRUE, x2 = TRUE, x3 = TRUE, x4 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = FALSE, x4 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = FALSE, x4 = FALSE];...",Negative
+G (x1 -> X(x2)),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];...",Positive
+G (x1 -> X(x2)),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+G(x3 & x2 -> x1),"[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];...",Positive
+G(x3 & x2 -> x1),"[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = TRUE, x3 = TRUE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];...",Negative
+X(X(X(X(F(x1))))),[x1 = FALSE];[x1 = TRUE];[x1 = FALSE];[x1 = TRUE];[x1 = TRUE];[x1 = FALSE];...,Positive
+X(X(X(X(F(x1))))),[x1 = FALSE];[x1 = FALSE];[x1 = FALSE];[x1 = TRUE];[x1 = FALSE];...,Negative
+G(x1 -> F(x2)),"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+G(x1 -> F(x2)),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+G(x1 -> X(!x1) & X(X(x1))),[x1 = TRUE];[x1 = FALSE];...,Positive
+G(x1 -> X(!x1) & X(X(x1))),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Negative
+F(x1) & G(!x2),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+F(x1) & G(!x2),"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+G(x1 -> X(!x1 U x2)),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];...",Positive
+G(x1 -> X(!x1 U x2)),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+F(x1 -> G(x2)),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = TRUE];...",Positive
+F(x1 -> G(x2)),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+F(x1 & G(!x2)),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+F(x1 & G(!x2)),"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+F(x1) -> G(x2),"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = TRUE];...",Positive
+F(x1) -> G(x2),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = TRUE];...",Negative
+G(!x1 & F(x1)),TRUE,Positive
+G(!x1 & F(x1)),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Negative
+G(x1 -> X(!x1)) & G(!x1 -> X(x1)),[x1 = TRUE];[x1 = FALSE];...,Positive
+G(x1 -> X(!x1)) & G(!x1 -> X(x1)),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];[x1 = TRUE];...,Negative
+G(X(x1) <-> (x2 <-> X(!x2))),"[x1 = FALSE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = TRUE];...",Positive
+G(X(x1) <-> (x2 <-> X(!x2))),"[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = TRUE];[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = TRUE];...",Negative
+x1 -> (X(x1) & X(X(x1)) & X(X(X(!x1)))),[x1 = TRUE];[x1 = TRUE];[x1 = TRUE];[x1 = FALSE];...,Positive
+x1 -> (X(x1) & X(X(x1)) & X(X(X(!x1)))),[x1 = TRUE];[x1 = TRUE];...,Negative
+G(x1 -> X(!x1)),[x1 = TRUE];[x1 = FALSE];...,Positive
+G(x1 -> X(!x1)),[x1 = TRUE];[x1 = TRUE];...,Negative
+G((x1 U !x1) & (F(!x1 U x1)) ),[x1 = FALSE];[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Positive
+G((x1 U !x1) & (F(!x1 U x1)) ),[x1 = FALSE];[x1 = FALSE];[x1 = TRUE];[x1 = TRUE];...,Negative
+F(x1->(X(X(G(!x1)))) | G(!x1)),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Positive
+F(x1->(X(X(G(!x1)))) | G(!x1)),[x1 = TRUE];[x1 = TRUE];...,Negative
+G((x1 & x2) U x3),"[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = TRUE];...",Positive
+G((x1 & x2) U x3),"[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = FALSE];...",Negative
+F(F(x1)),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Positive
+F(F(x1)),[x1 = FALSE];[x1 = FALSE];...,Negative
+F(G(x1->X!x1) & G(!x1->X(x1))),[x1 = FALSE];[x1 = FALSE];[x1 = TRUE];[x1 = FALSE];...,Positive
+F(G(x1->X!x1) & G(!x1->X(x1))),[x1 = FALSE];[x1 = FALSE];[x1 = TRUE];[x1 = TRUE];[x1 = FALSE];[x1 = TRUE];...,Negative
+x1 U (x2 & X(X(x2))),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];...",Positive
+x1 U (x2 & X(X(x2))),"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+G(G(x1) | F(!x1)),[x1 = FALSE];[x1 = TRUE];[x1 = TRUE];...,Positive
+G(G(x1) | F(!x1)),TRUE,Negative
+G(x1 | x2) & x1 U x2 & x2 U x1,"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = TRUE];...",Positive
+G(x1 | x2) & x1 U x2 & x2 U x1,"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+G(x1 -> X(x2 | X3)) & G(x1-> (!x2 & !x3)),"[X3 = FALSE, x1 = TRUE, x2 = FALSE, x3 = FALSE];[X3 = TRUE, x1 = FALSE, x2 = FALSE, x3 = FALSE];[X3 = FALSE, x1 = TRUE, x2 = FALSE, x3 = FALSE];...",Positive
+G(x1 -> X(x2 | X3)) & G(x1-> (!x2 & !x3)),"[X3 = FALSE, x1 = TRUE, x2 = TRUE, x3 = FALSE];[X3 = FALSE, x1 = TRUE, x2 = FALSE, x3 = FALSE];[X3 = TRUE, x1 = FALSE, x2 = FALSE, x3 = FALSE];[X3 = FALSE, x1 = TRUE, x2 = FALSE, x3 = FALSE];...",Negative
+F(x2) -> !x2 U (x1 & x3),"[x1 = TRUE, x2 = TRUE, x3 = TRUE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];...",Positive
+F(x2) -> !x2 U (x1 & x3),"[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];...",Negative
+!F(!x1),[x1 = TRUE];[x1 = TRUE];...,Positive
+!F(!x1),[x1 = FALSE];[x1 = TRUE];[x1 = TRUE];...,Negative
+G(x1 & (G(x2) U x1) & F(x2)),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = TRUE];...",Positive
+G(x1 & (G(x2) U x1) & F(x2)),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+G(x1& !x2) & F(x3),"[x1 = TRUE, x2 = FALSE, x3 = TRUE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];...",Positive
+G(x1& !x2) & F(x3),"[x1 = FALSE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];...",Negative
+G(F(x1)) -> F(G(x1)),[x1 = FALSE];[x1 = FALSE];...,Positive
+G(F(x1)) -> F(G(x1)),[x1 = FALSE];[x1 = TRUE];...,Negative
+x1 & !x2 -> F(!x1 U x2 ),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = TRUE];...",Positive
+x1 & !x2 -> F(!x1 U x2 ),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+(F(x1) & F(x2)) -> G(x1 -> x2 & x2 -> x1),"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+(F(x1) & F(x2)) -> G(x1 -> x2 & x2 -> x1),TRUE,Negative
+!(G(x1)) U G(!x1),[x1 = FALSE];[x1 = FALSE];...,Positive
+!(G(x1)) U G(!x1),[x1 = FALSE];[x1 = TRUE];[x1 = TRUE];...,Negative
+F(x1) -> G(x1 U !x1),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Positive
+F(x1) -> G(x1 U !x1),[x1 = FALSE];[x1 = TRUE];[x1 = TRUE];...,Negative
+G((x1 -> X(!x1)) & (!x1 -> X(x1))),[x1 = TRUE];[x1 = FALSE];...,Positive
+G((x1 -> X(!x1)) & (!x1 -> X(x1))),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];[x1 = TRUE];...,Negative
+G(F(X(x1))),[x1 = FALSE];[x1 = FALSE];[x1 = TRUE];...,Positive
+G(F(X(x1))),[x1 = FALSE];[x1 = FALSE];...,Negative
+G(x1) & G(!x1),TRUE,Positive
+G(x1) & G(!x1),[x1 = FALSE];[x1 = FALSE];...,Negative
+X(X(x1))->X(x1),[x1 = FALSE];[x1 = FALSE];...,Positive
+X(X(x1))->X(x1),[x1 = FALSE];[x1 = FALSE];[x1 = TRUE];...,Negative
+F(x1 & G(!x1)),TRUE,Positive
+F(x1 & G(!x1)),[x1 = FALSE];[x1 = FALSE];...,Negative
+G(F(x2) U X(x1)),"[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Positive
+G(F(x2) U X(x1)),"[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+X(G(x1)) -> F(x1),[x1 = FALSE];[x1 = TRUE];[x1 = TRUE];...,Positive
+X(G(x1)) -> F(x1),TRUE,Negative
+x3 U ((x1 | G(x3)) & F(x2)),"[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = FALSE, x2 = TRUE, x3 = TRUE];[x1 = FALSE, x2 = TRUE, x3 = TRUE];...",Positive
+x3 U ((x1 | G(x3)) & F(x2)),"[x1 = TRUE, x2 = FALSE, x3 = TRUE];[x1 = TRUE, x2 = FALSE, x3 = TRUE];...",Negative
+x1 -> X(x1),[x1 = FALSE];[x1 = FALSE];...,Positive
+x1 -> X(x1),[x1 = TRUE];[x1 = FALSE];...,Negative
+F(G(x1 -> X(x1) & X(X(!x1))) & G(!x1->X(!x1) & X(X(x1)))),TRUE,Positive
+F(G(x1 -> X(x1) & X(X(!x1))) & G(!x1->X(!x1) & X(X(x1)))),[x1 = FALSE];[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Negative
+(x1 -> G(!x2 & F(!x1 U x1))),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Positive
+(x1 -> G(!x2 & F(!x1 U x1))),"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+G(x1 U !x1 & !x1 U x1),[x1 = FALSE];[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Positive
+G(x1 U !x1 & !x1 U x1),[x1 = FALSE];[x1 = FALSE];...,Negative
+F((x1 <-> X(!x2)) | G(x2)),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = TRUE];...",Positive
+F((x1 <-> X(!x2)) | G(x2)),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];...",Negative
+G(x2 -> !F(x1) & x3 -> !F(x2)),"[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];...",Positive
+G(x2 -> !F(x1) & x3 -> !F(x2)),"[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = TRUE, x3 = TRUE];[x1 = FALSE, x2 = TRUE, x3 = TRUE];...",Negative
+F(G(x1 U x2)),"[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];...",Positive
+F(G(x1 U x2)),"[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+(x1 & x2) -> (X(x3) & X(X(!x3))),"[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = TRUE];...",Positive
+(x1 & x2) -> (X(x3) & X(X(!x3))),"[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = TRUE];[x1 = FALSE, x2 = FALSE, x3 = TRUE];...",Negative
+(x1 -> X(x1)) & (X(x1) -> X(X(x1))),[x1 = TRUE];[x1 = TRUE];...,Positive
+(x1 -> X(x1)) & (X(x1) -> X(X(x1))),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Negative
+x1 -> F(x2 U !x1),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Positive
+x1 -> F(x2 U !x1),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+X(X(X(x1))) -> (F(!x2) & x3),"[x1 = FALSE, x2 = TRUE, x3 = TRUE];[x1 = FALSE, x2 = TRUE, x3 = TRUE];...",Positive
+X(X(X(x1))) -> (F(!x2) & x3),"[x1 = FALSE, x2 = TRUE, x3 = TRUE];[x1 = FALSE, x2 = TRUE, x3 = FALSE];[x1 = FALSE, x2 = TRUE, x3 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = FALSE, x2 = TRUE, x3 = TRUE];...",Negative
+G(x1 U x2) & G(!(x1 & x2)),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];...",Positive
+G(x1 U x2) & G(!(x1 & x2)),"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];...",Negative
+G(F(X(X(X(x1))))),[x1 = FALSE];[x1 = FALSE];[x1 = FALSE];[x1 = FALSE];[x1 = TRUE];...,Positive
+G(F(X(X(X(x1))))),[x1 = FALSE];[x1 = FALSE];...,Negative
+G((x1 -> ! x2) & (x2 -> ! x1)),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Positive
+G((x1 -> ! x2) & (x2 -> ! x1)),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+G(X(X(X(x1))) -> x2),"[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = TRUE];...",Positive
+G(X(X(X(x1))) -> x2),"[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = TRUE];...",Negative
+F(G(F(x1))),[x1 = FALSE];[x1 = TRUE];...,Positive
+F(G(F(x1))),[x1 = FALSE];[x1 = FALSE];...,Negative
+G(X(!x1) -> x1),[x1 = TRUE];[x1 = TRUE];...,Positive
+G(X(!x1) -> x1),[x1 = TRUE];[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];[x1 = TRUE];...,Negative
+G(x1->!x2 & !x3) & G(x2 | x3 -> !x1),"[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];...",Positive
+G(x1->!x2 & !x3) & G(x2 | x3 -> !x1),"[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];...",Negative
+G(x1 -> (X(x2) & X(X(!x3)))),"[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = TRUE, x3 = TRUE];...",Positive
+G(x1 -> (X(x2) & X(X(!x3)))),"[x1 = TRUE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = TRUE];[x1 = FALSE, x2 = FALSE, x3 = TRUE];[x1 = TRUE, x2 = FALSE, x3 = FALSE];...",Negative
+G(F(x1 -> X(!x1)) & x2 -> !x2),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = TRUE];...",Positive
+G(F(x1 -> X(!x1)) & x2 -> !x2),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+G(!x1) -> (G(x1) | F(x2)),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Positive
+G(!x1) -> (G(x1) | F(x2)),"[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+G(G(x1) -> F(x2)),"[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+G(G(x1) -> F(x2)),"[x1 = FALSE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+(x1 U x2) | G(x1 -> X(!x1)),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Positive
+(x1 U x2) | G(x1 -> X(!x1)),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+G(X(x1) & F(x1 -> x2)),"[x1 = FALSE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];...",Positive
+G(X(x1) & F(x1 -> x2)),"[x1 = FALSE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+X(!x1 U x1) -> F(!x1),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Positive
+X(!x1 U x1) -> F(!x1),[x1 = TRUE];[x1 = TRUE];...,Negative
+F(x2 & x1) -> (x1 U x2) | (X(x2)),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];...",Positive
+F(x2 & x1) -> (x1 U x2) | (X(x2)),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+x1 -> F(G(x1)),[x1 = TRUE];[x1 = TRUE];...,Positive
+x1 -> F(G(x1)),[x1 = TRUE];[x1 = FALSE];...,Negative
+((F(x1) & F(x2) & F(x3)) -> x4) & (!F(x1) | !F(x2) | !F(x3) -> !x4),"[x1 = TRUE, x2 = TRUE, x3 = TRUE, x4 = TRUE];[x1 = FALSE, x2 = FALSE, x3 = FALSE, x4 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = FALSE, x4 = FALSE];...",Positive
+((F(x1) & F(x2) & F(x3)) -> x4) & (!F(x1) | !F(x2) | !F(x3) -> !x4),"[x1 = TRUE, x2 = TRUE, x3 = TRUE, x4 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = FALSE, x4 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = FALSE, x4 = FALSE];...",Negative
+G(((!x1) -> (!x2)) & ((!x2)->(!x1))) & F(x1 & x2),"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+G(((!x1) -> (!x2)) & ((!x2)->(!x1))) & F(x1 & x2),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+X(x1)->X(X(X(x2))),"[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+X(x1)->X(X(X(x2))),"[x1 = FALSE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+G(x1 & !x2),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Positive
+G(x1 & !x2),"[x1 = FALSE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+F(G(x1)) | G(F(x1)),[x1 = FALSE];[x1 = TRUE];[x1 = TRUE];...,Positive
+F(G(x1)) | G(F(x1)),[x1 = FALSE];[x1 = FALSE];...,Negative
+x1 -> F(!x1) & !x1 -> F(x1),[x1 = FALSE];[x1 = FALSE];...,Positive
+x1 -> F(!x1) & !x1 -> F(x1),TRUE,Negative
+(x1 <-> x2) U (x1 U x3),"[x1 = TRUE, x2 = TRUE, x3 = TRUE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];...",Positive
+(x1 <-> x2) U (x1 U x3),"[x1 = TRUE, x2 = TRUE, x3 = FALSE];[x1 = TRUE, x2 = TRUE, x3 = FALSE];...",Negative
+G(!(x1 & x2)) & G(x1 | x2),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Positive
+G(!(x1 & x2)) & G(x1 | x2),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+G(x1 | x2) & X(G(x2)),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = TRUE];...",Positive
+G(x1 | x2) & X(G(x2)),"[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+G((!x1 & X(x1)) -> X(F(x2))),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+G((!x1 & X(x1)) -> X(F(x2))),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+G(F(x1) | F(x2)),"[x1 = FALSE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+G(F(x1) | F(x2)),"[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+x1 -> X(!x1) & F(x2),"[x1 = FALSE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Positive
+x1 -> X(!x1) & F(x2),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+F(x1) -> G(x1),[x1 = TRUE];[x1 = TRUE];...,Positive
+F(x1) -> G(x1),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Negative
+G(F(x1 -> X(x2 U !x3))),"[x1 = FALSE, x2 = FALSE, x3 = FALSE];[x1 = FALSE, x2 = FALSE, x3 = TRUE];[x1 = FALSE, x2 = FALSE, x3 = FALSE];...",Positive
+G(F(x1 -> X(x2 U !x3))),"[x1 = FALSE, x2 = FALSE, x3 = FALSE];[x1 = TRUE, x2 = FALSE, x3 = TRUE];[x1 = TRUE, x2 = FALSE, x3 = TRUE];...",Negative
+G(F(x1 -> !x1)),[x1 = FALSE];[x1 = FALSE];...,Positive
+G(F(x1 -> !x1)),[x1 = FALSE];[x1 = TRUE];[x1 = TRUE];...,Negative
+G(F(G(x1))) & F(G(F(x2))),"[x1 = FALSE, x2 = FALSE];[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = TRUE];...",Positive
+G(F(G(x1))) & F(G(F(x2))),"[x1 = FALSE, x2 = FALSE];[x1 = FALSE, x2 = FALSE];...",Negative
+x1 -> X(X(X(x1))),[x1 = FALSE];[x1 = FALSE];...,Positive
+x1 -> X(X(X(x1))),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];[x1 = FALSE];...,Negative
+X(X(F(X(x1)))),[x1 = FALSE];[x1 = FALSE];[x1 = TRUE];[x1 = TRUE];[x1 = FALSE];...,Positive
+X(X(F(X(x1)))),[x1 = FALSE];[x1 = FALSE];...,Negative
+F(x1) -> G(x2),"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = TRUE];...",Positive
+F(x1) -> G(x2),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = TRUE];...",Negative
+x1 -> X(X(X(x1))),[x1 = FALSE];[x1 = FALSE];...,Positive
+x1 -> X(X(X(x1))),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];[x1 = FALSE];...,Negative
+(x1 U x2) & G(x1),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Positive
+(x1 U x2) & G(x1),"[x1 = FALSE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+G(x1 -> (X(!x1) & X(X(x1)))),[x1 = TRUE];[x1 = FALSE];...,Positive
+G(x1 -> (X(!x1) & X(X(x1)))),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Negative
+x1 -> X(X(X(x1))),[x1 = FALSE];[x1 = FALSE];...,Positive
+x1 -> X(X(X(x1))),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];[x1 = FALSE];...,Negative
+X(X(F(X(x1)))),[x1 = FALSE];[x1 = FALSE];[x1 = TRUE];[x1 = TRUE];[x1 = FALSE];...,Positive
+X(X(F(X(x1)))),[x1 = FALSE];[x1 = FALSE];...,Negative
+(F(x1)) -> (G(x2)),"[x1 = TRUE, x2 = TRUE];[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = TRUE];...",Positive
+(F(x1)) -> (G(x2)),"[x1 = TRUE, x2 = FALSE];[x1 = FALSE, x2 = TRUE];[x1 = FALSE, x2 = TRUE];...",Negative
+((x1) U (x2)) & G(x1),"[x1 = TRUE, x2 = TRUE];[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Positive
+((x1) U (x2)) & G(x1),"[x1 = FALSE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];[x1 = TRUE, x2 = FALSE];...",Negative
+G(x1 -> (X(!x1 ) & X(X(x1)))),[x1 = TRUE];[x1 = FALSE];...,Positive
+G(x1 -> (X(!x1 ) & X(X(x1)))),[x1 = TRUE];[x1 = FALSE];[x1 = FALSE];...,Negative
