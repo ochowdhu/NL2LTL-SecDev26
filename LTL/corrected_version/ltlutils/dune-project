@@ -1,0 +1,28 @@
+(lang dune 3.16)
+
+(name ltlutils)
+
+(generate_opam_files true)
+
+(source
+ (github username/reponame))
+
+(authors "Omar Chowdhury")
+
+(maintainers "Omar Chowdhury")
+
+(license LICENSE)
+
+(documentation https://url/to/documentation)
+
+(package
+ (name ltlutils)
+ (synopsis "A set linear temporal logic utilities")
+ (description "This is a set of small tools that performs several analyses on Linear Temporal Logic Formulas")
+ (depends ocaml dune)
+ (tags
+  (topics "to describe" your project)))
+
+(using menhir 2.1)
+
+; See the complete stanza docs at https://dune.readthedocs.io/en/stable/reference/dune-project/index.html

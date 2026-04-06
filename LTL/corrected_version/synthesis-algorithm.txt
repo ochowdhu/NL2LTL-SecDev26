@@ -1,0 +1,95 @@
+
+let get_full_atom_list atoms = 
+    True :: False :: List.map (fun x -> (Identifier x)) (StringSet.elem atoms) 
+
+apply_binary_constructor (constructor, first_arg, Formula list f1, Formula list f2)  : Formula list{
+    match (f1, f2) with 
+    | ([], _) -> [] 
+    | (_, []) -> [] 
+    | (x::xs, y::ys) -> constructor(first_arg, x, y) :: ((apply_binary_constructor constructor first_arg xs y::ys) @ (apply_binary_constructor x::xs ys)) 
+
+}
+
+let simplify formula = 
+match formula with 
+| LTrue -> LTrue 
+| LFalse -> LFalse
+| Not(LTrue) -> LFalse 
+| Not(LFalse) -> LTrue 
+| Not(f1) -> let sf1 = simplify f1 in 
+        if sf1 = LTrue then LFalse 
+        else if sf1 = LFalse then LTrue 
+        else if sf1 = Not(sf2) then sf2 
+        else Not(sf1) 
+| BinPOP(AND, f1, f2) -> 
+        let sf1 = simplify f1 in 
+        let sf2 = simplify f2 in 
+        if sf1 = LTrue then sf2 
+        else if sf2 = LTrue then sf1 
+        else if sf1 = LFalse || sf2 = LFalse then LFalse 
+        else combine_and sf1 sf2  
+| BinPOP(OR, f1, f2) -> 
+        let sf1 = simplify f1 in 
+        let sf2 = simplify f2 in 
+        if sf1 = LTrue || sf2 = LTrue then LTrue 
+        else if sf1 = LFalse then sf2 
+        else if sf2 = LFalse then sf1 
+        else combine_or sf1 sf2
+| BinPOP(IMPLY, f1, f2) -> 
+        let sf1 = simplify f1 in 
+        let sf2 = simplify f2 in 
+        if sf1 = LTrue then sf2 
+        else if sf1 = LFalse then LTrue 
+        else if sf1 = sf2 then LTrue 
+        else BinPOP(IMPLY, sf1, sf2)
+| BinPOP(EQUIV, f1, f2) -> 
+        let sf1 = simplify f1 in 
+        let sf2 = simplify f2 in 
+        if sf1 = sf2 then LTrue 
+        else BinPOP(EQUIV, sf1, sf2)
+| BinTOP(SINCE, f1, f2) -> BinTOP(SINCE, simplify f1, simplify f2)
+| BinTOP(UNTIL, f1, f2) -> BinTOP(UNTIL, simplify f1, simplify f2)
+| UnTOP(YESTERDAY, f1) -> let sf1 = simplify f1 in if sf1 = LFalse then LFalse else UnTOP(YESTERDAY, sf1)
+| UnTOP(TOMORROW, f1) -> let sf1 = simplify f1 in if sf1 = LFalse then LFalse else if sf1 = LTrue then LTrue else UnTOP(TOMORROW, sf1) 
+| UnTOP(EVENTUALLY, f1) -> let sf1 = simplify f1 in if sf1 = LFalse then LFalse else if sf1 = LTrue then LTrue else UnTOP(EVENTUALLY, sf1)
+| UnTOP(GLOBALLY, f1) -> let sf1 = simplify f1 in if sf1 = LFalse then LFalse else if sf1 = LTrue then LTrue else UnTOP(GLOBALLY, sf1)
+| UnTOP(HISTORICALLY, f1) -> let sf1 = simplify f1 in if sf1 = LFalse then LFalse else if sf1 = LTrue then LTrue else UnTOP(HISTORICALLY, sf1)
+| UnTOP(ONCE, f1) -> let sf1 = simplify f1 in if sf1 = LFalse then LFalse else if sf1 = LTrue then LTrue else UnTOP(ONCE, sf1)
+| _ -> formula
+
+
+generate_formulas( int search_depth, full_atom_list, bool future, bool past, bool minimal) : Formula list 
+{
+    if(search_depth == 0) then full_atom_list
+    else
+    {
+        f1 = generate_formulas(search_depth - 1, full_atom_list, future, past) 
+        (* f2 = generate_formulas(search_depth - 1, full_atom_list, future, past)  *)
+
+        let not_list = List.map (fun x -> (Not(x))) f1 in 
+        let and_list = (apply_binary_constructor BinPOP AND f1 f1) 
+        let or_list = if !minimal then (apply_binary_constructor BinPOP OR f1 f1) else []
+        let imply_list = if !minimal then (apply_binary_constructor BinPOP IMPLY f1 f1) else [] 
+        let equiv_list = if !minimal then (apply_binary_constructor BinPOP EQUIV f1 f1) else [] 
+        let yesterday_list = if past then List.map (fun x -> UnTop(YESTERDAY, x)) f1 else [] in 
+        let next_list = if future then List.map (fun x -> UnTop(TOMORROW, x)) f1 else [] in 
+        let once_list = if !minimal && past then List.map (fun x -> UnTop(ONCE, x)) f1 else [] in 
+        let historically_list = if !minimal && past then List.map (fun x -> UnTop(HISTORICALLY, x)) f1 else [] in 
+        let eventually_list = if !minimal && future then List.map (fun x -> UnTop(EVENTUALLY, x)) f1 else [] in 
+        let globally_list = if !minimal && future then List.map (fun x -> UnTop(GLOBALLY, x)) f1 else [] in
+        let since_list = if past then (apply_binary_constructor BinTOP SINCE f1 f1) in 
+        let until_list = if future then (apply_binary_constructor BinTOP UNTIL f1 f1) in 
+
+        not_list @ and_list @ or_list @ imply_list @ equiv_list @ yesterday_list @ next_list @ once_list @ historically_list @ eventually_list @ globally_list @ since_list @ until_list
+
+
+
+    }
+}
+
+synthesize(int search_level, int max_search_depth, f_original): formula option
+{
+
+}
+
+

@@ -1,0 +1,16 @@
+# dune exec --root /Users/priscilladanso/Documents/GitHub/promptEVAL-main/LTL ./corrected_version/ltlutils/bin/main.exe
+# OCAMLPARAM: unset
+# Shared cache: enabled-except-user-rules
+# Shared cache location: /Users/priscilladanso/.cache/dune/db
+# Workspace root: /Users/priscilladanso/Documents/GitHub/promptEVAL-main/LTL
+# Auto-detected concurrency: 10
+# Dune context:
+#  { name = "default"
+#  ; kind = "default"
+#  ; profile = Dev
+#  ; merlin = true
+#  ; fdo_target_exe = None
+#  ; build_dir = In_build_dir "default"
+#  ; instrument_with = []
+#  }
+$ /Users/priscilladanso/.opam/default/bin/ocamlc.opt -config > /var/folders/kl/2tsgpzb54yl_7k_hm98swt400000gn/T/dune_a755f5_output

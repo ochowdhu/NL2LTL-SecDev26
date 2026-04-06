@@ -1,0 +1,2 @@
+print_formula
+F(((p | w) <-> (t | G(r))))
