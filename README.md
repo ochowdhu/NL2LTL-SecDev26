@@ -22,7 +22,7 @@ This repository contains the full benchmark, datasets, prompts, experiment code,
 - **Three learning approaches:** Zero-Shot, Zero-Shot Self-Refine, Few-Shot
 - **Two correctness dimensions:** Syntactic correctness and semantic consistency
 
-A key finding: LLMs learn LTL syntax relatively easily, but semantic correctness — verified through model checking, that remains a significant challenge.
+A key finding: LLMs learn LTL syntax relatively easily, but semantic correctness must be verified through model checking, that remains a significant challenge.
 
 ---
 
