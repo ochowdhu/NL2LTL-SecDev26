@@ -363,6 +363,7 @@ The input file must have the command on the first line, followed by formulas on 
 | Command | Arguments | Description |
 |---|---|---|
 | `equiv` | `f1`, `f2` | Check logical equivalence of two formulas |
+| `check_entailment` | `f1`, `f2` | Check logical entailment of two formulas |
 | `check_future` | `f` | Verify formula uses only future temporal operators |
 | `check_past` | `f` | Verify formula uses only past temporal operators |
 | `positive_trace_gen` | `f` | Generate a satisfying trace for formula `f` |
