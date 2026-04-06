@@ -1,0 +1,3 @@
+Natural Language,Ground Truth,Atomic Proposition,AST
+it eventually holds that if x1 is true then x2 is true thereafter,F(x1 -> G(x2)),"x1 : x1 , x2 : x2","Eventually(LImplies(AtomicProposition(""x1""),Always(AtomicProposition(""x2""))))"
+"whenever x1 is true, it becomes false in the next state and true again in the state after that",G(x1 -> (X(!x1) & X(X(x1)))),x1 : x1,"Always(LImplies(AtomicProposition(""x1""),LAnd(Next(Not(AtomicProposition(""x1""))),Next(Next(AtomicProposition(""x1""))))))"

@@ -1,0 +1,313 @@
+Natural Language,Ground Truth,Atomic Proposition
+it eventually holds that if x1 is true then x2 is true thereafter,F(x1 -> G(x2)),"x1 : x1 , x2 : x2"
+"whenever x1 is true, it becomes false in the next state and true again in the state after that",G(x1 -> (X(!x1) & X(X(x1)))),x1 : x1
+x1 is true sometime after 4 or more transitions,X(X(X(X(F(x1))))),x1 : x1
+at some point x1 is true and x2 is false thereafter,F(x1 & G(X(!x2))),"x1 : x1 , x2 : x2"
+"whenever x1 is true, x1 must be false in the future until x2 holds (and x2 will hold at some point in the future)",G(x1 -> X(!x1 U x2)),"x1 : x1 , x2 : x2"
+x1 is true at some point and x2 is always false,F(x1) & G(!x2),"x1 : x1 , x2 : x2"
+"if x1 is ever true at some point, x2 must always be true",F(x1) -> G(x2),"x1 : x1 , x2 : x2"
+"whenever x1 is true, x2 will be true at some point in the future",G(x1 -> F(x2)),"x1 : x1 , x2 : x2"
+"Whenever x1 holds, it cannot hold again until x2 does",G(x1 -> X(!x1 U x2)),"x1 : x1 , x2 : x2"
+"If x1, then it is always the case that x2 is true until x3 is false.",x1 -> G(x2 U !x3),"x1 : x1 , x2 : x2 , x3 : x3"
+"Every time x1 is true, eventually x2 is true or the next x3 is false",G(x1 -> (F(x2) | X(!x3))),"x1 : x1 , x2 : x2 , x3 : x3"
+x1 cannot be true three states in a row,G((x1 & X(x1)) -> X(X(!x1))),x1 : x1
+x1 is true in exactly one state.,F(x1) & G(x1 -> X(G(!x1))),x1 : x1
+"Considering x1 and x2 as two threads both attempting to add lock on a variable. describe the rule that ""No more than one thread can have that lock"". Take true as success on locking and false as failure.",G((x1 & !x2) | (!x1 & x2) | (!x1 & !x2)),"x1 : x1 , x2 : x2"
+Make x2 hold in any and only those states which come after the last state in which x1 holds.,G (x1-> X(!x1 U X2)),"x1 : x1 , x2 : x2"
+"Given a request signal x1, the grant signal x2 should eventually be asserted.",G(x1 -> F(X(x2))),"x1 : x1 , x2 : x2"
+"It is never eventually false that if x1 is true then x2 and x3 are true, but only after x4 is true (which will happen).",G (F(x4 -> (!(F !x1->(x2 & x3))))),"x1 : x1 , x2 : x2 , x3 : x3"
+"There are 2 clients who perform read/write on the same file. Only one client can write at a time and while writing no one can read the file. x1 is true if client 1 is writing, x2 is true if client 2 is writing, x3 is true is true if client 1 is reading, x4 is true if client 2 is reading.",G(!(x1 & x3) & !(x2 & x4) !(x2 & x3) &!(x1 & x4) & ((x2 | x3)  ->!(x1 | x4))),"x1 : x1 , x2 : x2 , x3 : x3, x4 : x4"
+It is always true that x1 is true and that x1 will eventually become false.,G(x1 &  F(!x1)),x1 : x1
+The pattern of true and false of x1 in the first 3 entries repeats.,G((x1 & X(!x1) & X(X(x1))) | (!x1 & X(x1) & X(X(!x1)))),x1 : x1
+"x1 starts true, and then never again becomes true.",x1 & X(G(!x1)),x1 : x1
+"x1 will always be true if x2 is false, unless x3 is also true",G ((!x2 & !x3) -> x1),"x1 : x1 , x2 : x2 , x3 : x3"
+x1 starts true and is true exactly every third state,x1 & G(x1 -> X(!x1) & X(X(!x1)) & X(X(X(x1)))),x1 : x1
+"if x1 is true two times in a row, it is never true again.",G((x1 & X(x1)) -> X(X(G(!x1)))),x1 : x1
+"There are three people running a relay race. Person x1 will go first, then eventually person x2 will go, then finally x3 will go until the end of the race. Only one person is running in the relay race at once.",x1 & (!x2 | !x3) -> F(x2 & (!x1 | !x3)) -> F(x3 & (!x2 | !x1)) & G(x3),"x1 : x1 , x2 : x2 , x3 : x3"
+"For a while, it is never the case that x1 is true and x2 is false at the same time, but after a certain point, x2 will eventually always be true.",!(x1 & !x2) U (F(G(x2))),"x1 : x1 , x2 : x2"
+if x1 is true at the beginning then x2 is true at the end,G(x1->F(x2)),"x1 : x1 , x2 : x2"
+x2 always holds if x1 and x3 do not hold,(!x1 & !x3) -> G(x2),"x1 : x1 , x2 : x2 , x3 : x3"
+"x2 is always true, whereas x1 is only sometimes true.",G(x2) & F(x1) & F(!x1),"x1 : x1 , x2 : x2"
+"If x1 is true, then x2 must have just transitioned from true to false.",G(X(x1) -> (x2 & !X(x2))),"x1 : x1 , x2 : x2"
+trace of x1 is repeated with with the period of 5 (x at time t+5 will always be x at t),G(x1<->X(X(X(X(X(x1)))))),x1 : x1
+"x1 will never be true or it'll keep being true, at least occasionally, forever",G(!x1) | G(F(x1)),x1 : x1
+"Whenever x1 is true, x1 is false and x2 is true in the state after; whenever x2 is true, x1 is false and x1 is true in the state after",G((x1->(!x & X(x2)) ) & (x2->(!x1 & X(x1)))),"x1 : x1 , x2 : x2"
+"If it at least rains once, or on alternating days, (rain being the boolean x1), the bean will eventually sprout (x2).",x1 & X(!x1) | !x1 & X(x1) -> x2,"""rain"" : x1 , ""sprout"" : x2"
+x1 is true exactly twice,F(x1 & X(F(x1 & G(!x1)))),x1 : x1
+It is eventually true that x1 is always true when x2 and x3 false.,F(!x2 & !x3 -> G(x1)),"x1 : x1 , x2 : x2 , x3 : x3"
+"for every state if x1 is true, then x2 and x3 should be false, if x2 or x3 is true, x1 is false.",G(x1->!(x2 & x3) & ((x2 | x3)->!x1)),"x1 : x1 , x2 : x2 , x3 : x3"
+x1 is always eventually true unless x2 is false and x3's next state is true,G(F(x1) U (!x2) & X(x3)),"x1 : x1 , x2 : x2 , x3 : x3"
+It is always the case that x1 happens immediately before x2.,G(x1 -> X(x2)),"x1 : x1 , x2 : x2"
+If x1 is true in the next step then x1 will always eventually be true.,G(X(x1) & G(F(x1))),x1 : x1
+Either for every 5th time step x1 and x2 is true or for every 3rd time step x3 is true.,X(X(X(X(X(x1 & x2))))) | X(X(X(x3))),"x1 : x1 , x2 : x2 , x3 : x3"
+It always holds that x1 is true until x2 is false and x3 is true,x1 U (!x2 & x3),"x1 : x1 , x2 : x2 , x3 : x3"
+x1 is always true until both x2 and x3 once to be true.,x1 U (x2 & x3),"x1 : x1 , x2 : x2 , x3 : x3"
+x1 is only true when x2 in the next next state is not true.,G(x1 ->X(X(!x2))),"x1 : x1 , x2 : x2"
+"when x1 is true, x2 will eventually (but not immediately) be true",x1 -> F(x2),"x1 : x1 , x2 : x2"
+"It's always true that if x1 is true that in the previous state x1 is false, and that x1 was true 2 states ago",G(x1 -> (X(!x1) & X(X(x1)))),x1 : x1
+"At any point, exactly 2 of x1, x2, and x3 have the same truth value, and the variables that have the same truth value switch at each step.","G!(x1 & x2 & x3 ) & 
+G!(!x1 & !x2 & !x3 ) &
+G((x1 & x2 & !x3 )| (x1 & !x2 & x3 )| (!x1 & x2 & x3 )| (!x1 & !x2 & x3 )| (!x1 & x2 & !x3 )| (x1 & !x2 & !x3 )) & 
+G((x1 & x2 & !x3 )->X((!x1 & x2 & x3 )| (x1 & !x2 & x3 ))) &G((x1 & !x2 & x3 )->X((!x1 & x2 & x3 )| (x1 & x2 & !x3 ))) &
+G((!x1 & x2 & x3 )->X((x1 & !x2 & x3 )| (!x1 & !x2 & x3 ))) &
+G((!x1 & x2 & !x3 )->X((x1 & !x2 & x3 )| (x1 & x2 & !x3 ))) & 
+G((x1 & !x2 & !x3 )->X((x1 & x2 & !x3 )| (!x1 & x2 & x3 )))","x1 : x1 , x2 : x2 , x3 : x3"
+x3 is true if and only if x1 and x2 are true in the previous state and x1 and x2 are eventually true.,G (x3 <-> (X(x1 & x2) & F(x1 & x2))),"x1 : x1 , x2 : x2 , x3 : x3"
+x1 is sometimes true until x2 is true and must be false after (x1),(x1 U x2) & G(x2 -> F (!x1)),"x1 : x1 , x2 : x2"
+"It always holds that after x1 is true, x2 will be true. x3 will not be true until both x1 and x2 are true.",G(x1 ->F(x2)) & G(!x3 U (x1 & x2)),"x1 : x1 , x2 : x2 , x3 : x3"
+"if (x1 and x2) is eventually true, then x1 is false until it is true. Otherwise, if x2 is eventually true, then x1 is also eventually true.",F(x1 & x2) -> (!x1 U x1) & F(x2)->F(x1),"x1 : x1 , x2 : x2"
+"Given states x1, x2, and x3: always transitioning in a cycle (ex. x1 -> x2 -> x3 -> x1 ...)",G(x1->X(x2)) & G(x2->X(x3)) & G(x3->X(x1)),"x1 : x1 , x2 : x2 , x3 : x3"
+"If we know that x1 will eventually be true, then we know that x2 will be true until x1 is true. Otherwise, all we know is that x3 is true.",F(x1)->(x2 U x1) & G(x3),"x1 : x1 , x2 : x2 , x3 : x3"
+"When x1 is true, then x3 will become true eventually after x2 is true",G(x1->F(x3 & F(x2))),"x1 : x1 , x2 : x2 , x3 : x3"
+It always holds that x2 is false if x1 is true and x2 is true if x1 is false in the next state,G((x1->!x2) & X(!x1->X(x2))),"x1 : x1 , x2 : x2"
+"If any of x1, x2, x3 is true, x4 will be true at some point of time and stay true thereafter",x1 & x2 & x3 -> X(G(x4)),"x1 : x1 , x2 : x2 , x3 : x3, x4 : x4"
+"When x1, it cannot become x2 immediately or become x3 in less than 3 steps.",G(x1->(X(!x2) & X(x3) & X(X(!x3)))),"x1 : x1 , x2 : x2 , x3 : x3"
+x1 repeated flips truth values (goes from true to false and back again forever),G((x1 U !x1) & (!x1 U x1)),x1 : x1
+"if x1 is never true, then x2 and x3 will always alternate which is true, with only one being true at a time.",G(!x1) -> ((x2 -> X(!x2 & x3)) & (x3 ->X(!x3 & x2))),"x1 : x1 , x2 : x2 , x3 : x3"
+"if x2 is true and x1 is true and x3 is true, then it eventually holds that x1 and x2 and x3 are always true",x1 & x2 & x3 -> F(x1) & F(x2) & F(x3),"x1 : x1 , x2 : x2 , x3 : x3"
+"if next value of x1 is false, then x2 must just transitioned from true to false, and x3 must just transitioned from false to true",G(X(!x1->((x2 & X(!x2)) & (!x3 & X(x3))))),"x1 : x1 , x2 : x2 , x3 : x3"
+"If at some point in time, x1 becomes true and stays true, is it always true that x1 eventually becomes true or is it eventually true that x1 is always true?",G(F(x1) -> (F(x1) | F(G(x1)))),x1 : x1
+"Amy, Barbara, and Catherine are friends who sometimes hang out in the lounge. However, there is an argument going on right now, such that some people will not hang out if certain others are there. Amy will not be present in the lounge if Catherine is there unless Barbara is also there to mediate. If Barbara and Amy are in the lounge together, Catherine will be hanging out with Barbara regardless of if they hang in the lounge of not. Eventually however, they will all hang out in the lounge together. Use x1, x2, and x3 to represent if Amy, Barbara, and Catherine are in the lounge respectively.",G((x3->!x1 & x2) & ((x1 & x2) -> x3) & F(x1 & x2 & x3)),"""Amy"" : x1, ""Barbara"" : x2, ""Catherine"" : x3"
+"If x1 is always true, then x2 will always be true until x3 is false",G(x1) -> G(x2) U (!x3),"x1 : x1 , x2 : x2 , x3 : x3"
+x2 and x3 will become true on the same step x1 will become true the step after x2 becomes true x4 will be true until x1 is true x2 will be true at some point,G (F(x2 & x3) & (X (x2 -> X(x1))) & G(x4 U x1) & F(x2)),"x1 : x1 , x2 : x2 , x3 : x3, x4 : x4"
+"Call x1 the variable of, did I take my medicine? I try to always take my medicine on time, but sometimes I forget. However, I never forget more than once in a row.",G(!x1 -> X(x1)),"""did I take my medicine?"" : x1"
+Parents with high education will always have children who would also pursue education.,G(x1 -> G(x2)),"""Parents with high education"" : x1 , ""children who would also pursue education"": x2"
+"The variable x1 will be true at least once, but at some point it will never be true again",!x1 U F(x1) & X(G(!x1)),x1 : x1
+"if x1 is true, x2 and x3 is false",G(x1-> !(x2 & x3)),"x1 : x1 , x2 : x2 , x3 : x3"
+"whenever x1 is true, x2 is true until x3 is true and x3 is true if x2 is true.",G((x1->x2 U x3) & (x2->x3)),"x1 : x1 , x2 : x2 , x3 : x3"
+"If x1's next state is true, x2 will eventually be true",X(x1)->F(x2),"x1 : x1 , x2 : x2"
+x1 is always true and x2 is false for at least the first two time steps.,G(x1) & X(X(!x2)),"x1 : x1 , x2 : x2"
+it is always true that x1 is true until x2 is eventually False,G(x1 U F(x2)),"x1 : x1 , x2 : x2"
+"If x1 is eventually true, then x2 will be true at some point after.",F(x1) -> F(x2),"x1 : x1 , x2 : x2"
+"It is always the case that when x1 and x2 are true, then sometimes x3 is true.",G(x1 & x2) -> F(x3),"x1 : x1 , x2 : x2 , x3 : x3"
+"If it's always sunny outside (x1), then the plants will always eventually grow (x2) and you will also eventually get a sunburn (x3).",G(x1 -> (F(x2) & F(x3))),"x1 : x1 , x2 : x2 , x3 : x3"
+"x1 is true only when x3 is false, until the reverse is true eventually.",G((x1->!x3) U (!x1->x3)),"x1 : x1 , x2 : x2 , x3 : x3"
+The truth value of x1 alternates at each state.,G(x1->X(!x1) | !x1->X(x1)),x1 : x1
+"x1 is true in the next state, or x1 is true in all states.",X(x1) | G(x1),x1 : x1
+"x1 is always true until x2 is true or x3 is true, and x3 will be true eventually.",G(x1 U (x2 | x3) & F(x3)),"x1 : x1 , x2 : x2 , x3 : x3"
+x3 is always true if x1 and x2 are true in the previous state. x3 will eventually be true.,G((x1 & x2) ->X(x3)) & F(x3),"x1 : x1 , x2 : x2 , x3 : x3"
+x2 is never true or x2 is true until x1 is true,G(!x2) | G(x2 U x1),"x1 : x1 , x2 : x2"
+Jack got 50 in his midterm exam but he didn't want to fail that course and Jack had 100 in his final.,x1 & x2 & X(x3),"x1 : x1 , x2 : x2 , x3 : x3"
+x1 and x2 will eventually become true at the same time.,G(F(x1 & x2)),"x1 : x1 , x2 : x2"
+"Whenever the Red light is on, it turns off in the next state and on again in the state after that.",G (x1 ->(X(!x1) & X(X(x1)))),"""Red light"" : x1"
+"The Red light is on in exactly one state, but not necessarily the first state.",( !x1) U (x1 & X(G (!x1))),"""Red light"" : x1"
+The Red light cannot stay lit for three states in a row.,!F(x1 & X(x1 ) & X(X(x1))),"""Red light"" : x1"
+"Whenever the Red light is on, the Blue light will turn on at some point.",G (x1 -> F(x2)),"""Red light"" : x1, ""Blue"": x2"
+"The Red light is lit for a finite number of steps, and then never again becomes lit.",(x1) U (G(!x1)),"""Red light"" : x1"
+"Whenever the Red light is on, it is off in the next state and on again in the state after that",G(x1 -> X(!x1) & X(X(x1))),"""Red light"" : x1"
+"The Red light is on in exactly one state, but not necessarily the first state",F(x1) & G(x1 -> X(G(!x1))),"""Red light"" : x1"
+The Red light cannot stay on for three states in a row,G(x1 & X(x1) -> X(X(!x1))),"""Red light"" : x1"
+"Whenever the Red light is on, the Blue light will be on then or at some point in the future",G(x1 -> x2 | F(x2)),"""Red light"" : x1, ""Blue"": x2"
+"The Red light is on for zero or more states, and then turns off and remains off in the future",F(!x1) & G(!x1 -> X(G(!x1))),"""Red light"" : x1"
+"The robot has to go to the cafe on Main street, then stop by a bank, then go to McDonald’s, but only after visiting the bank",F (x1 & F (x2)) & F (x3 & (!x3 U x2)),"""Cafe"" : x1, ""bank"" : x2, ""McDonald's"" : x3"
+"Once the pump has been turned been on, an initial pressure reading will be taken and displayed, and thereafter the displayed value for the pressure will be updated every 2 seconds.",G(x1 -> (X(x2) & G(X(X(x3))))),"""Pump on"" : x1, ""initial pressure reading"" : x2, ""update pressure reading"" : x3"
+move to the Red,F(x1),"""Red room"" : x1"
+go through blue room to green room,F(x1) & F(x2),"""blue room"" : x1, ""green room"" : x2"
+go to the blue room but avoid the Red room,F(x1) & G(!x2),"""blue room"" : x1, ""red room"" : x2"
+go through Red or yellow to get to green,F(x1 | x2) & F(x3),"""Red room"" : x1, ""yellow room"" : x2, ""green room"" : x3"
+find science library,F(x1),"""science library"" : x1"
+go to fedex office and then go to cvs,F(x1) & F(x2),"""fedex office"" : x1, ""cvs"" : x2"
+stay away from main st and find chipotle,G (!x1) & F(x2),"""main st"" : x1, ""chipotle"" : x2"
+stay on main st and find bookstore,F(x1) & G(x2),"""bookstore"" : x1 , ""main st"" : x2"
+"If b holds then, in the next step, c holds until a holds or always c holds.",b -> X((c U a) | (G(c))),"a : a, b : b, c : c"
+"If b holds at some point, a has to hold somewhere beforehand.",(F(b) -> (!b U (a & !b))),"a : a, b : b"
+"One of the following aps will hold at all instances: a,b,c.",G( a | b | c),"a : a, b : b, c : c"
+Every a is eventually followed by a e.,G(a -> F(e)),"a : a, e : e"
+It is never the case that a and b hold at the same time.,G(!(a & b)),"a : a, b : b"
+"Whenever a is enabled, b is enabled three steps later.",G(a -> X(X(X b))),"a : a, b : b"
+"e must hold everywhere until from some point on, d holds infinitely often.",G(e U (G(F(d)))),"e : e, d : d"
+"Whenever a holds, b holds as well.",G(a -> b),"a : a, b : b"
+Both a and b hold in every time step.,G(a & b),"a : a, b : b"
+"a holds always and whenever b holds, c does not hold.",G(a) & G(b -> !c),"a : a, b : b, c : c"
+"If it is the case that every a is eventually followed by a b, then c needs to holds infinitely often.",G(a -> F (b)) -> G(F(c)),"a : a, b : b, c : c"
+"If a holds infinitely often, then b holds infinitely often as well.",G(F(a)) -> G(F(b)),"a : a, b : b"
+Either a or b holds infinitely often,G(F(a)) | G(F(b)),"a : a, b : b"
+a never holds from some point in time on.,F(G(!a)),a : a
+"Whenever a and b do not hold, c holds eventually.",G (!(a & b) -> F(c)),"a : a, b : b, c : c"
+a and b never occur at the same time but one of them holds in every time step.,G(!(a & b)) & G(a | b),"a : a, b : b"
+"Whenever the inputs a and b are the same, the outputs c and d are the same.",G ((a <-> b) -> (c <-> d)),"a : a, b : b, c : c, d : d"
+a can only happen if b happened before,(!a) U b,"a : a, b : b"
+"Once a happened, b will not happen again.",G (a -> X(G(!b))),"a : a, b : b"
+a releases b,(b U (b & ! a)) | G(b),"a : a, b : b"
+a and b will not occur at the same time,G !(a & b),"a : a, b : b"
+"Whenever a holds and b holds in the next step, then c holds one step after b.",G (a & X(b) -> X(X(c))),"a : a, b : b, c : c"
+"Whenever a holds, b holds eventually from the next step on.",G (a -> X(F(b))),"a : a, b : b"
+a holds in every fifth step.,a & G(a -> X(!a) & X(X(!a)) & X(X(X(!a))) & X(X(X(X(!a)))) & X(X(X(X(X(a)))))),a : a
+Either a holds infinitely often or b holds in the next step.,G(F(a)) | X(b),"a : a, b : b"
+a will hold at all instances.,G (a),a : a
+"Whenever a holds, b must hold in the next two steps",G (a -> (b | X(b))),"a : a, b : b"
+If a holds b will eventually hold,G (a -> F(b)),"a : a, b : b"
+"a must always hold, but if is execeeds, it allow two timestamps to recover.",G(a | X(a) | X(X(a))),a : a
+not a holds at most two timestamps,G(!a -> (X(!a) | X(X(a)))),a : a
+a can only hold every three timestamps,G(a -> (X(!a) | X(X(!a)) | X(X(X(a))))),a : a
+Every a is followed by a b.,G ( a -> X(b)),"a : a, b : b"
+Eventually a and b hold.,F (a & b),"a : a, b : b"
+Both a and b hold eventually.,F(a) & F(b),"a : a, b : b"
+It is always the case that a is the same as b in the next step.,G(a <-> X(b)),"a : a, b : b"
+a holds until b holds or always a holds,(a U b) | G(a),"a : a, b : b"
+The coffee machine is always ready when somebody is at the room,G(x2 -> x1),"""Coffe machine"" : x1, ""room"" : x2"
+Lights are only on if somebody is in the room,G(x1 <-> x2),"""Lights"" : x1, ""room"" : x2"
+Globally if a holds then c is true until b.,G(a -> (c U b)),"a : a, b : b, c : c"
+Every request r is eventually followed by a grant g,G(x1 -> F(x2)),"""Request"" : x1, ""grant"" : x2"
+a and b never occur at the same time but one of them holds in every time step.,G(!(a & b)) & G(a | b),"a : a, b : b"
+a can only happen if b happened before.,(!a) U b,"a : a, b : b"
+a holds until b holds or always a holds.,(a U b) | G(a),"a : a, b : b"
+an event has to occur at most 2 times in the future.,!p U (p U (!p U (p U G(!p)))),"""An event"" : p"
+A user cannot join and leave in the same state,G!(x1 & x2),"“join"" : x1, “leave” : x2"
+An object version cannot be added and removed in the same state,G!(x1 & x2),"“add"" : x1, “remove” : x2"
+A subject cannot be created and simultaneously killed. Also the subject cannot perform read or update operations in the same state in which it was created ,G!(x1 & (x2 | x3 | x4)),"“create"" : x1, “kill"" : x2, “read"" : x3, “update"" : x4"
+A version being updated to say v2 cannot be simultaneously read or further updated by any subject in the same state,G!(x1 & (x2 | x1)),"“update” : x1,”read” : x2"
+An object cannot be created and updated in the same state,G!(x1 & x2),"“create” : x1, “update” : x2"
+An object may not be added and read in the same state ,G!(x1 & x2),"“add” : x1, “read” : x2"
+"After the button is pressed, the light will turn Red until the elevator arrives at the floor and the doors open.",x1 -> X(x2 U (x3 & x4)),"""Button is pressed” : x1, ""the light will turn red” : x2, ""the elevator arrives at the floor” : x3, ""the doors open” : x4"
+"if Red, must have !Red in future",F(x1 -> F(!x1)),“red” : x1
+"always r, eventually b",(r U b) & G(r),"r : r, b : b"
+"r now, !b next",r & !X(b),"r : r, b : b"
+"whenever r, off/on evermore",G(r -> X(!r & X(r))),r : r
+"r for all states, b for some",(r U b) & G(r),"r : r, b : b"
+"r now, if next !b",r & !X(b),"r : r, b : b"
+never r,G(!r),r : r
+"Whenever Red, it is off in the next state and on again in the state after that.",G(x1 -> X(!x1) & X(X(x1))),“Red” : x1
+"Red in exactly one state, not necessarily the first",(!x1) U (x1 & X(G(!x1))),“Red” : x1
+Red cannot stay on 3 states in a row,!F(x1 & X(x1) & X(X(x1))),"“Red"" : x1"
+"Whenever Red, then Blue then or later",G(x1-> F(x2)),"“Red"" : x1, “Blue” : x2"
+"r for zero or more, then !r forevermore",(r U !r) & (G(!r -> G(!r))),r : r
+r infinitely often,G(F(r)),r : r
+"if Red now, then Red in 3 steps",x1 -> X(X(X(x1))),“Red” : x1
+r in 3 or more steps,X(X(F(X(r)))),r : r
+"if any r, then all b",F(r) -> G(b),"r : r, b : b"
+always r and eventually b,(r U b) & G(r),"r : r, b : b"
+"whenever r, off next on next-next",G(r -> X(!r) & X(X(r))),r : r
+"whenever r, cannot be next with g",G(r -> !X(g)),"r : r , g : g"
+There are at least two states in which the Blue light is on,F(b & X(F(b))),"“Blue"" : x1"
+"Blue on in 1, off in 2, alts evermore",x1 & G(x1 -> X(!x1 & X(x1))),"“Blue"" : x1"
+Red is on exactly once.,!x1 U (x1 & G(!X(x1))),"“Red"" : x1"
+It is always the case that if the you dont have a passport or a ticket then you cannot board a flight next,G((!x1 | x2) -> X(!x3)),"“passport"" : x1, “ticket"" : x2, ""board flight” : x3"
+it is the case that if a request is sent then eventually it will be received ,G(x1 -> F(x2)),"""Request"" : x1, ""received"" : x2"
+it is the case that if a request is received then next state is for it to be processed,G(x1 -> X(x2)),"“received"" : x1, “processed"" : x2"
+it is the case that if a request is processed then eventually it will be done ,G(x1 -> F(x2)),"“processed"" : x1, “done"" : x2"
+"it is not the case that the system continually re-sends a request, but never sees it completed",G(x1 & !x2),"“request"": x1, “completed"" : x2"
+when you are sad and not rich then you must be sad,(x1 & !x2) -> X(x1),"“sad"" : x1, ”rich” : x2"
+if have you have not resigned and you are sad then eventually you will be famous,(!x1 & x2) -> F(x3 ),"""resigned"" : x1, ""sad"": x2, “famous” : x3"
+if you are sad then eventually you will be happy,x1 -> F(x2),"“sad” : x1, ”happy” : x2"
+if you send money to your mum then eventually she will receive the money,x1 -> F(x2),"“send” : x1,”receive” : x2"
+if you win a lottery then you are rich,x1 -> x2,"""lottery win” : x1, ”rich"" : x2"
+if you start a lecture then you will talk until the lecture ends,x1 -> (x2 U x3),"""start lecture"" : x1, “talk” : x2, ""end lecture” : x3"
+if one is born then the person is alive until the person is dead,x1 -> (x2 U x3),"“born"" : x1, “alive”: x2, “dead” : x3"
+if you send a requwest then there will be a reply until an acknowledgement is received,x1 -> (x2 U x3),"“request"" : x1, “reply"" : x2, “acknowledgement"" : x3"
+DeviceEnabled always holds on every computation path.,G (x1),"“DeviceEnabled"" : x1"
+"whenever Request occurs, it will be eventually Acknowledged.",G (x1 -> G(F(x2))),"“request"" : x1, “acknowledgement"" : x2"
+from any state one will eventually get to a Restart state.,G (F(x1)),“restart” : x1
+whenever the reset button is pressed one will eventually get to the Restart state.,G (x1 -> G(F(x2))),"“reset"" : x1, “restart” : x2"
+"If the door is locked, it will not open until someone unlocks it",G(x1 -> G(!x2 U x3)),"“locked"" : x1, “open” : x2, “unlocked"" : x3"
+"If you press ctrl-C, you will get a command line prompt",G (x1 -> G(F(x2))),"""press ctrl-C” : x1, ""get a command line prompt” : x2"
+The saw will not run unless the safety guard is engaged,G (x1 -> x2),"""run the saw” : x1, ""engage safety guard” : x2"
+Pressing Start will eventually result in heat,G(x1 -> G(F(x2))),"""Press start” : x1, “heat” : x2"
+The oven doesn’t heat up until the door is closed.,G ( !x2 -> !x1 ),"""Oven heat up” : x1, ""Door closed” : x2"
+An upward going lift at the second floor keeps going up if a passenger requests the fifth floor,G(x1 & x2 & x3 -> (x1 U x4)),"“At the second floor” :  x1, “going up” : x2, “request on fifth floor” : x3, “arrive at the fifth floor” : x4"
+If Enabled infinitely often then Running infinitely often,G(F(x1)) -> G(F(x2)),"“enable"" : x1 , “running"" : x2"
+Eventually the state becomes permanently Done,F(G(x1)),"""State done” : x1"
+DeviceEnabled holds infinitely often along every path,G(F(x1)),"“DeviceEnabled"" : x1"
+"It is impossible to get to a state where started holds, but ready does not hold",G!(x1 & !x2),"""start state” : x1, ""ready state” : x2"
+"For any state, if a request (of some resource) occurs, then it will eventually be acknowledged",G(x1 -> F(x2)),"“request"" : x1, “acknowledgement"" : x2"
+A certain process is enabled infinitely often on every computation path,G(F(x1)),"""A process is enabled” : x1"
+"Whatever happens, a certain process will eventually be permanently deadlocked",F(G(x1)),"""A deadlock process” : x1"
+"If the process is enabled infinitely often, then it runs infinitely often",G(F(x1)) -> G(F(x2)),"""An enabled process” : x1, ""the process run” : x2"
+An upwards travelling lift at the second floor does not change its direction when it has passengers wishing to go to the fifth floor,G (x1 & x2 & x3 -> (x2 U x4)),"“At the second floor” :  x1, “going up” : x2, “button pressed for fifth floor” : x3, “arrive at the fifth floor” : x4"
+"the robot should “always eventually” reach (always return to) region A, and also always eventually reach region B",G(F(x1)) &G(F(x2)),"""region A"" : x1, ""region B"" : x2"
+" the robot is not in B, or, if it is, in the next state it will not be in B until it has been to A.",G(x2->X(!x2 U x1)),"A : x1, B : x2"
+"If a TSAFE command is sent to an aircraft, controller/AutoResolver should then hand off the control of this aircraft",G (x1 -> X(x2)),"""Send TSAFE command” : x1, ""hand off controller” : x2"
+Always make coffee at 7am on weekdays,G(x3 & x2 -> x1),"""make coffee” : x1, “7am"" : x2, “weekdays” : x3"
+x1 will hold eventually after the fourth time step,X(X(X(X(F(x1))))),x1 : x1
+"It always holds that, if x1 is true x2 will eventually be true.",G(x1 -> F(x2)),"x1 : x1 , x2 : x2"
+"It always holds that whenever x1 is true, it is false in the next state, and x1 is true in the state after the next.",G(x1 -> X(!x1) & X(X(x1))),x1 : x1
+"It eventually holds that x1 is true, and it always holds that x2 is false",F(x1) & G(!x2),"x1 : x1 , x2 : x2"
+It always holds that when x1 is true then in the next state x1 is false until x2 is true.,G(x1 -> X(!x1 U x2)),"x1 : x1 , x2 : x2"
+It eventually holds that if x1 is true then it always holds that x2 is true.,F(x1 -> G(x2)),"x1 : x1 , x2 : x2"
+"There is eventually a state in which x1 holds, and in that state and all after, x2 does not hold.",F(x1 & G(!x2)),"x1 : x1 , x2 : x2"
+"if x1 will happen at some point in the future, x2 will always holds",F(x1) -> G(x2),"x1 : x1 , x2 : x2"
+it is always the case that x1 is false and eventually x1 is true,G(!x1 & F(x1)),x1 : x1
+"It always holds that if x1 is true, x1 will be false at the next state, and it is always true that if x1 is false, x1 will be true at the next state",G(x1 -> X(!x1)) & G(!x1 -> X(x1)),x1 : x1
+it is always the case that in the next state x1 is true if and only if x2 is true if and only if in the next state x2 is false,G(X(x1) <-> (x2 <-> X(!x2))),"x1 : x1 , x2 : x2"
+"if x1 is true in the current state, then it is true in the next, and true in the state after, and false in the state after that",x1 -> (X(x1) & X(X(x1)) & X(X(X(!x1)))),x1 : x1
+"It always holds that if x1 is true at some state, then x1 is false following at the next state.",G(x1 -> X(!x1)),x1 : x1
+it is always the case that x1 is true until x1 is false and eventually x1 is false until x1 is true,G((x1 U !x1) & (F(!x1 U x1)) ),x1 : x1
+eventually if x1 is true then in the state after the next state it is always the case that x1 is false or x1 is false forever,F(x1->(X(X(G(!x1)))) | G(!x1)),x1 : x1
+It is always the case that if x1 and x2 are true until at some point x3 becomes true,G((x1 & x2) U x3),"x1 : x1 , x2 : x2, x3 : x3"
+eventually at some point after x1 is true it will eventually be true again,F(F(x1)),x1 : x1
+eventually it is always the case that if x1 is true then in the next state x1 is false and always if x1 is false then in the next state x1 is true,F(G(x1->X!x1) & G(!x1->X(x1))),x1 : x1
+x1 always happen until we reach a state in which x2 happen and x2 happen in two states after.,x1 U (x2 & X(X(x2))),"x1 : x1 , x2 : x2"
+It always holds that either x1 is always true or x1 is eventually false.,G(G(x1) | F(!x1)),x1 : x1
+it is always the case that x1 or x2 are true and x1 is true until x2 is true and x2 is true until x1 is true,G(x1 | x2) & x1 U x2 & x2 U x1,"x1 : x1 , x2 : x2"
+it is always the case that if x1 is true then the after that x2 or x3 will be true and always if x1 is true then x2 or x3 will be false,G(x1 -> X(x2 | X3)) & G(x1-> (!x2 & !x3)),"x1 : x1 , x2 : x2, x3 : x3"
+eventually if x2 is true then x2 is false until x1 and x3 are true,F(x2) -> !x2 U (x1 & x3),"x1 : x1 , x2 : x2, x3 : x3"
+it is not the case that eventually x1 is false,!F(!x1),x1 : x1
+it is always the case that x1 is true and always x2 is true until x1 is true and eventually x2 remain true,G(x1 & (G(x2) U x1) & F(x2)),"x1 : x1 , x2 : x2"
+it is always the case that x1 is true and x2 us false and eventaully x3 is true,G(x1& !x2) & F(x3),"x1 : x1 , x2 : x2, x3 : x3"
+it is always the case that eventually if x1 is true then eventually always x1 will be true,G(F(x1)) -> F(G(x1)),x1 : x1
+if x1 is true and x2 is false then eventually x1 is false until x2 happens,x1 & !x2 -> F(!x1 U x2 ),"x1 : x1 , x2 : x2"
+if eventually x1 and 2 is true then always if x1 is true then x2 is true and if x2 is true then x1 is true,(F(x1) & F(x2)) -> G(x1 -> x2 & x2 -> x1),"x1 : x1 , x2 : x2"
+it is not the case that always x1 is true until always x1 is false,!(G(x1)) U G(!x1),x1 : x1
+eventually if x1 is true then always x1 is true until x1 is false,F(x1) -> G(x1 U !x1),x1 : x1
+it is always the case that if x1 is true then in the next state x1 is false and if x1 is false then in the next state x1 will be true,G((x1 -> X(!x1)) & (!x1 -> X(x1))),x1 : x1
+it is always the case thate eventually in the next state x1 will be true,G(F(X(x1))),x1 : x1
+it is always the caswe that x1 is true and it is always the caswe that x1 is false,G(x1) & G(!x1),x1 : x1
+if the state after the next state x1 is true then in the next state x1 is true,X(X(x1))->X(x1),x1 : x1
+eventually x1 is true and it is always the case that x1 is false,F(x1 & G(!x1)),x1 : x1
+it is always the case that eventually x2 is true until in the next state x1 is true,G(F(x2) U X(x1)),"x1 : x1 , x2 : x2"
+"in the next state, it is always the case that if x1 is true then eventually x1 is true",X(G(x1)) -> F(x1),x1 : x1
+x3 is true until x1 is true or x3 is always true and eventually x2 is true,x3 U ((x1 | G(x3)) & F(x2)),"x1 : x1 , x2 : x2, x3 : x3"
+"if x1 is true, x1 must be true in the next state",x1 -> X(x1),x1 : x1
+eventually it is always the case that if x1 is true then in the next state x1 and in the state after the states x1 is false and always if x1 is false then in the next state x1 is false and then state after the next state is true,F(G(x1 -> X(x1) & X(X(!x1))) & G(!x1->X(!x1) & X(X(x1)))),x1 : x1
+if x1 is true then it is always the case the x2 is false and eventually x1 is false until x1 is true,(x1 -> G(!x2 & F(!x1 U x1))),"x1 : x1 , x2 : x2"
+it is always the case that x1 is true until x1 is flase and x1 is false until x1 is true,G(x1 U !x1 & !x1 U x1),x1 : x1
+eventually x1 is true if and only if in the next state x2 is false or it is always the case that x2 is true,F((x1 <-> X(!x2)) | G(x2)),"x1 : x1 , x2 : x2"
+it is always the case that if x2 is true and then it is not the case that eventually x1 is true and if x3 is true then it is not the case that eventually x2 is true,G(x2 -> !F(x1) & x3 -> !F(x2)),"x1 : x1 , x2 : x2, x3 : x3"
+eventually it is always the case that x1 is true until x2 is true,F(G(x1 U x2)),"x1 : x1 , x2 : x2"
+if x1 and x2 are true then in the next state x3 is true and in the state after the next state x3 is false,(x1 & x2) -> (X(x3) & X(X(!x3))),"x1 : x1 , x2 : x2, x3 : x3"
+if x1 is true then in the next state x1 is true and if in the next state x1 is true then it is the case that in the state after the next state x1 is true,(x1 -> X(x1)) & (X(x1) -> X(X(x1))),x1 : x1
+if x1 is true then eventually x2 is true until x1 is false,x1 -> F(x2 U !x1),x1 : x1
+if the state after the next state after the next state x1 is true then eventually x2 is false and x3 is true,X(X(X(x1))) -> (F(!x2) & x3),"x1 : x1 , x2 : x2, x3 : x3"
+it is always the case that x1 is true until x2 isn true and it is always the case that x1 and x2 are false,G(x1 U x2) & G(!(x1 & x2)),"x1 : x1 , x2 : x2"
+it is always the case that eventually the state after the next state after the next state x1is true,G(F(X(X(X(x1))))),x1 : x1
+it is always the case that if x1 is true then x2 is false and if x2 is tue then x1 is false,G((x1 -> ! x2) & (x2 -> ! x1)),"x1 : x1 , x2 : x2"
+it is always the case that if the state after the next state after the next state x1 is true then x2 is true,G(X(X(X(x1))) -> x2),"x1 : x1 , x2 : x2"
+"eventually, it is always the case that x1 is eventually true",F(G(F(x1))),x1 : x1
+it is always the case that if in the next state x1 is false then x1 is true,G(X(!x1) -> x1),x1 : x1
+it is always the case that if x1 is true then x2 is false and x3 is false and it is always the case that if x2 or x3 is true then x1 is false,G(x1->!x2 & !x3) & G(x2 | x3 -> !x1),"x1 : x1 , x2 : x2, x3 : x3"
+it is always the case that if x1 is true then in the next state x2 is true and in the state after the next state x3 is false,G(x1 -> (X(x2) & X(X(!x3)))),"x1 : x1 , x2 : x2, x3 : x3"
+it is always the case that if eventually x1 is true then in the next state x1 is false and if x2 is true then x2 is false,G(F(x1 -> X(!x1)) & x2 -> !x2),"x1 : x1 , x2 : x2"
+it is always the case that is x1 is false then it is always the case that x1 is true or eventually x2 is true,G(!x1) -> (G(x1) | F(x2)),"x1 : x1 , x2 : x2"
+it is always the case that if x1 is always true then eventually x2 is true,G(G(x1) -> F(x2)),"x1 : x1 , x2 : x2"
+x1 is true until x2 happens to be true or it is always the case that if x1 is true then in the next state x1 is false,(x1 U x2) | G(x1 -> X(!x1)),"x1 : x1 , x2 : x2"
+is it always the case that in the next state x1 is true and eventually if x1 is true then x2 is true,G(X(x1) & F(x1 -> x2)),"x1 : x1 , x2 : x2"
+if in the next state x1 is false until x1 is true then eventually x1 is false,X(!x1 U x1) -> F(!x1),x1 : x1
+if eventually x2 and x1 is true then x1 is true until x2 happens to be true or in the next state x2 is true,F(x2 & x1) -> (x1 U x2) | (X(x2)),"x1 : x1 , x2 : x2"
+if x1 is true then eventually it is always the case that in the next state x1 is true,x1 -> F(G(x1)),x1 : x1
+"if eventually x1,x2 and x3 is true then x4 is true and if it is not the case that eventually x1,x2 and x3 is true then x4 is false",((F(x1) & F(x2) & F(x3)) -> x4) & (!F(x1) | !F(x2) | !F(x3) -> !x4),"x1 : x1 , x2 : x2, x3 : x3, x4: x4"
+it is always the case that if x1 is false then x2 is false and if x2 is false then x1 is false. and eventually x1 and x2 are true,G(((!x1) -> (!x2)) & ((!x2)->(!x1))) & F(x1 & x2),"x1 : x1 , x2 : x2"
+in the next state if x1 is true then in the state after the next state after the next state x2 is true,X(x1)->X(X(X(x2))),"x1 : x1 , x2 : x2"
+it is always the case that x1 is true and x2 is false and if x1 is true x2 cannot be true in the same state then it is always the case that x2 is false,G(x1 & !x2),"x1 : x1 , x2 : x2"
+eventually it is always the case that x1 is true or it is always the case that eventually x1 is true,F(G(x1)) | G(F(x1)),x1 : x1
+if x1 is true then eventually x1 is false and if x1 is false then eventually x1 is true,x1 -> F(!x1) & !x1 -> F(x1),x1 : x1
+x1 is true if and only if x2 is true until it is the case that x1 is until x3 is true,(x1 <-> x2) U (x1 U x3),"x1 : x1 , x2 : x2, x3 : x3"
+it is always the case that x1 and x2 are false and it is always the case that x1 or x2 is true,G(!(x1 & x2)) & G(x1 | x2),"x1 : x1 , x2 : x2"
+it is always the case that x1 or x2 is true and in the next state it is always the case that x2 is true,G(x1 | x2) & X(G(x2)),"x1 : x1 , x2 : x2"
+if it is always the case that x1 is false and in the next state x1 is true then in the next state eventually x2 is true,G((!x1 & X(x1)) -> X(F(x2))),"x1 : x1 , x2 : x2"
+it is always the case that eventually x1 is true or eventually x2 is true,G(F(x1) | F(x2)),"x1 : x1 , x2 : x2"
+if x1 is true then in the next state x1 is false and eventually x2 is true,x1 -> X(!x1) & F(x2),"x1 : x1 , x2 : x2"
+if eventually x1 is true then it is always the case that x1 is true,F(x1) -> G(x1),x1 : x1
+it is always the case that eventually if x1 is true then in the next state x2 is true until x3 is false,G(F(x1 -> X(x2 U !x3))),"x1 : x1 , x2 : x2, x3 : x3"
+it is always the case that eventually if x1 is true then x1 is false,G(F(x1 -> !x1)),x1 : x1
+it is always the case that eventually it is always the case that x1 is true and eventually it is always the case that eventually x2 is true,G(F(G(x1))) & F(G(F(x2))),"x1 : x1 , x2 : x2"
+"if Red is initially lit, then it is also lit after three steps",x1 -> X(X(X(x1))),"“red"" : x1"
+Red is lit after 3 or more steps,X(X(F(X(x1)))),"“red"" : x1"
+if Red is eventually lit then Blue is always lit,F(x1) -> G(x2),"“red” : x1, “blue” : x2"
+"if Red is initially lit, then it is also lit after three steps",x1 -> X(X(X(x1))),“red” : x1
+Blue is eventually lit and Red is always lit,(x1 U x2) & G(x1),"“red” : x1, “blue” : x2"
+"whenever Red is lit, it turns off in the next state and on again in the state after that",G(x1 -> (X(!x1) & X(X(x1)))),“red” : x1
+"If the engine is on, the engine will be on 3 states from now",x1 -> X(X(X(x1))),"""Engine on” : x1"
+"After two states have passed, eventually the Engine after these the next state will be on.",X(X(F(X(x1)))),"""Engine on” : x1"
+"If the engine eventually turns on, then the light is always on.",(F(x1)) -> (G(x2)),"""Engine on” : x1, “blue"" : x2"
+"the engine will be on until the light turns on, and the engine is always on",((x1) U (x2)) & G(x1),"""Engine on” : x1, ""Light on” : x2"
+"If the engine is on, then in the next state the engine is not on and two states later it turns back on.",G(x1 -> (X(!x1 ) & X(X(x1)))),"""Engine on” : x1"

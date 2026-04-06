@@ -1,0 +1,4 @@
+Natural Language,Atomic Proposition,Ground Truth
+It previously held that if x1 was true then x2 was true before that.,"x1: x1, x2: x2",O(x1 -> H(x2))
+"Whenever x1 was true, it becomes false in the previous state and true again in the state before that.",x1: x1,H(x1 -> Y(!x1 & Y(x1)))
+x1 was true sometime before 4 or more transitions.,x1: x2,O(Y(Y(Y(Y(x1)))))

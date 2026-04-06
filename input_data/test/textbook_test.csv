@@ -1,0 +1,5 @@
+Natural Language,Ground Truth,Atomic Proposition
+The machine provides beer infinitely often after initially providing soda three times in a row,x1 & X(x1) & X(X(x1))->G(F(x1)),“The machine provide beer” : x1
+Each process 1 and 2 will eventually enter its critical section,F(x1),“Process enters critical section” : x1
+Each process 1 and 2 will enter its critical section infinitely often,G(F(x1)),“Process enters critical section” : x1
+Each waiting process will eventually enter its critical section,G(x1 -> F(x2)),“Waiting process” : x1; “Critical section” : x2

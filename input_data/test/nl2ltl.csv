@@ -1,0 +1,2 @@
+Natural Language,Ground Truth,Atomic Proposition
+it eventually holds that if x1 is true then x2 is true thereafter,F(x1 -> G(x2)),"x1 : x1 , x2 : x2"

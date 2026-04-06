@@ -1,0 +1,15 @@
+fuzzywuzzy
+python-dotenv 
+openai 
+anthropic 
+google-genai
+scikit-learn
+python-Levenshtein
+tenacity
+pandas
+dash
+plotly
+seaborn
+numpy
+tqdm
+streamlit 

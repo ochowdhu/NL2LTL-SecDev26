@@ -1,0 +1,145 @@
+Natural Language,Ground Truth,Atomic Proposition
+The machine provides beer infinitely often after initially providing soda three times in a row,x1 & X(x1) & X(X(x1))->G(F(x1)),“The machine provide beer” : x1
+Each process 1 and 2 will eventually enter its critical section,F(x1),“Process enters critical section” : x1
+Each process 1 and 2 will enter its critical section infinitely often,G(F(x1)),“Process enters critical section” : x1
+Each waiting process will eventually enter its critical section,G(x1 -> F(x2)),“Waiting process” : x1; “Critical section” : x2
+The first traffic light is infinitely often green,G(F(x1)),“Green” x1
+The traffic lights are never both green simultaneously,G(!(x1&x2)),“Green1” x1; “Green2” x2
+"If one light switches from red to green, the other switches from green to red",G ((x1 & X x2) -> (x3 & X x4)),“Red1’ : x1; “Green1” : x2; “Green2” : x3; “Red2’ : x4;
+a red phase must be preceded immediately by a yellow phase,G(x1 -> (Y(x2))),“Red’ : x1; “Yellow” : x2;
+Something good will eventually happen,F(x1),“Something good” : x1
+Both traffic lights are infinitely often green,G(F(x1)) & G(F(x2)),“Traffic light is green1” : x1; “Traffic light is green2” : x2
+Every process that is enabled infinitely often gets its turn infinitely often,G(F(x1)) -> G(F(x2)),“Every process enabled” : x1; “Every process get turn” : x2
+Every process that is continuously enabled from a certain time instant on gets its turn infinitely often.,G(G(x1) -> F(x2)),"“Process is enabled” : x1; ""Process gets its turn” : x2"
+Each traffic light is green infinitely often,G(F(x1))&G(F(x2)),“Traffic light is Green1” x1; “Traffic light is Green2” x2
+Every process that requests access to the critical section will eventually be able to do so,G(x1 -> x2),"""Process requests access” : x1; ""Process is in its critical section” : x2"
+A should never occur,G(!x1),A : x1
+A should occur exactly once,F(x1 & G(X(!x1))),A : x1
+A and B alternate infinitely often,G(F(x1)) & G(F(x2) &  G(X1 -> X(!x1 U x2)) & G (x2 -> X(!x2 U x1)),A : x1; B : x2
+A should eventually be followed by B,G(x1 -> F(x2)),A : x1; B : x2
+"Whenever the input x is continuously high, then the output y is infinitely often high",G(G(x1)->G(F(x2))),x : x1; y : x2
+"Whenever currently r2=0, then it will never be the case that after the next input r1=1",G(x1-> X(!(x2))),“r2=0” : x1; “r1=1” : x2
+It is never the case that two successive outputs are high. ,G!(x1 & X(x1)),“Output is high” : x1
+The configuration with x=1 and r1=0 never occurs.,G(!(x1&x2)),“x=1” : x1; “r1=0” : x2
+The car stops once the driver pushes the brake,G(x2 -> F(x1)),“Car stops” : x1; “Push car brakes” : x2
+The message is received after it has been sent,G(x2 - > F(x1)),“Message received” : x1; “Message has been sent” : x2
+"Once red, the light cannot become green immediately",G(x1 -> X(!x2)),“Red” : x1; “Green” : x2
+"once red, the light always becomes green eventually after being yellow for some time",G(x1 -> (x1 U (x2 & (x2 U x3)))),“Red” : x1; “Yellow” : x2; “Green” : x3
+every request will eventually lead to a response,G (x1 -> F(x2)),“Request” : x1; “Response” : x2
+"Whenever message m is in the out-buffer of S, then m will eventually be consumed by the receiver",G (x1 -> F(x2)),"""Message m is in the out-buffer of S” : x1; ""Message m is consumed by the receiver” : x2"
+Message m cannot be in both buffers at the same time,G!(x1 & x2),"""Message m is in the out-buffer of S” : x1; ”Message m is in the in-buffer of R” : x2"
+There is always one leader,G(x1),“Leader” : x1
+There must always be at most one leader,G(x1),“At Most One Leader” : x1
+There will be enough leaders in due time,G(F(x1)),“EnoughLeaders” : x1
+"If message m is offered first by S to its output buffer S.out and subsequently m , then m will be received by R before m",G((x1 & F(x2)) -> (x3 U x4)),"""Message m1 is offered by S” : x1 ; ”Message m2 is offered by S” : x2 ; ""Message m1 is received by R” : x3 ; ""Message m2 is received by R” : x4"
+In the presence of an active process with a higher identity the leader will resign at some time,G(x1 -> F(x2)),"""There is an active process with a higher identity” : x1 ; ""The leader resigns” : x2"
+A new leader will be an improvement over the previous one,G(x1->x2),“NewLeader” : x1; “ImprovementOverPreviousLeader” : x2
+a user can print only for a finite amount of time,G(x1 -> F(!x2)),“A User Can Print” : x1
+"if a user wants to print something, he/she eventually is able to do so. ",G(x1 -> F(x2)),“A User Wants To Print” : x1; “A User Can Print” : x2
+a user can always request to use the printer ,G(F(x1)),“A user makes a request” : x1
+User 1 and 2 must strictly alternate in printing,G(x1 -> X(x2)) & G(x2 -> X(x1)),“User1 prints” : x1 ; “User2 prints” : x2
+Floor 0 door is never open if the elevator is not present at floor 0,G(!x2->!x1),“Open door of floor 0” : x1 ; “Elevator at floor 0” : x2
+A requested floor will be served sometime,G(x1 -> F(x2)),“Requested floor” : x1 ; “served floor” : x2
+Again and again the elevator returns to floor 0,G(F(x1)),“Elevator At floor 0” : x1
+"When the top floor is requested, the elevator serves it immediately and does not stop on the way there.",G(x1->X(x2 & G(!x3))),“Requested at Top Floor” : x1 ; “Served at Top Floor” : x2 ; “Stops Until Top Floor” : x3
+"at the next time where x1 holds, x2 also holds",G(x1->X(x2)),x1 : x1 ; x2 : x2
+x2 holds as least as long as x1 does.,G (x1 -> (x1 U (!x1 | x2))),x1 : x1 ; x2 : x2
+"if x1 holds sometime, x2 does so before",F(x1) -> (!x1 U x2),x1 : x1 ; x2 : x2
+"Whenever some process is in the inner sanctum, no process is at location l4.",G(x1 -> !x2),“Process In Inner Sanctum” x1 ; “Process At l4“ : x2
+"if all reliable processes have the same initial value, then their final value is the same as their common initial value.",G (x1 -> F(x2)),"""All reliable processes have the same initial value” : x1 ; ”All reliable processes have the same final value, which is equal to the initial value” : x2"
+each red light phase is preceded by a yellow light phase,G (x1 -> Y(x2)),"""The light is red” : x1 ; ”The light is yellow” : x2"
+the traffic light is infinitely often green,G(F(x1)),"""The light is green” : x1"
+every request will eventually be granted,G (x1 -> F(x2)),"“A request is made” : x1 ; ""The request is granted” : x2"
+Possibly the system never goes down,F(G(!x1)),"""The system is down” : x1"
+Invariantly the system never goes down,G(!x1),"""The system is down” : x1"
+It is always possible to start as new,G(F(x1)),"""The system can start as new” : x1"
+The system always eventually goes down and is operational until going down,G(F(x1)) & G (!x1 U x1),"""The system is down” : x1"
+a floor door is never open if the cabin is not present at the given floor. ,G(!x2 -> !x1 ),"""The door at floor i is open” : x1 ; ”The cabin is at floor i” : x2"
+"Each time a button is pressed, there is a corresponding request that needs to be memorized until fulfillment ",G (x1 -> (x2 U x3)),"""A button is pressed” : x1 ; ""The corresponding request is memorized” : x2 ; ""The request is fulfilled” : x3"
+The elevator only services the requested floors and does not move when there is no request.,G (x1 -> x3) & G (!x2 -> !x1),"""The elevator is moving” : x1 ; ""A floor is requested” : x2 ; ""The elevator is servicing a requested floor” : x3"
+All requests are eventually satisfied,G(x1 -> F(x2)),"""A request is made” : x1 ;  ""The request is satisfied” : x2"
+A rising edge at the inputs leads to an output pulse,G(x1 -> F(x2)),"""A rising edge occurs at the inputs” : x1 ; ”An output pulse occurs” : x2"
+There is at most one output pulse for each rising edge.,G(x1 -> (x2 & X(G!(x2)))),"""A rising edge occurs at the inputs” : x1 ; ”An output pulse occurs” : x2"
+There is at most one rising edge for each output pulse,G(x2 -> (x1 & X(G(!x1)))),"""A rising edge occurs at the inputs” : x1 ; ”An output pulse occurs” : x2"
+The bank has issued the money but has not been requested either to redeem it or cancel,x1 & G (!x2 & !x3),"""The bank has issued the money” : x1 ; ""A redeem request has been sent” : x2 ; ""A cancel request has been sent” : x3"
+If a cancel request is sent to the bank by the customer then the bank restores the money to the customers account ,G(x1 -> F(x2)),"""A cancel request has been sent” : x1 ; ”The bank restores the money to the customer's account” : x2"
+"Whenever Rsp(p) is enabled, Do(p) can never become enabled unless a Rsp(p) step eventually occurs.",G(x1 -> G(x2 -> F(x3))),"""Rsp(p) is enabled” : x1 ; “Do(p) is enabled” : x2 ; ""An Rsp(p) step occurs” : x3"
+It is not the case that John is home,!x1,"""John is home” : x1"
+"If the pressurizer water level rises above l0, then the reactor shall be tripped (i.e., shut down) on the next cycle at latest.",G(x1 -> (X(x2) |x2)),"""The pressurizer water level rises above l0” : x1 ; “The reactor is tripped” : x2"
+"If steam pressures in either of the steam generators exceed the mean pressure by Δp and emergency feedwater lines are not closed, then the corresponding valve closing signals shall be generated",G((x1 & !x2) -> x3),"""Steam pressures exceed the mean pressure by Δp” : x1 ; “Emergency feedwater lines are closed” : x2 ; ""Valve closing signals are generated” : x3"
+"In the second moment in time, hot will be true.",X(X(x1),"""Hot is true” : x1"
+"There is a moment in the future where either 'pink' is always true, or 'brown' is true in the next moment in time.",F(G(x1) | X(x2)),"""Pink is true” : x1 ;  ""Brown is true” : x2"
+"In the next moment in time, 'running' will be true and, at some time after that, 'terminated' will be true",X(x1 & F(x2)),"""Running is true” :  x1 ; “Terminated is true” : x2"
+"It is always the case that, if either have_passport or have_ticket is false, then, in the next moment in time board_fight will also be false",G((!x1 | !x2) -> X !x3),"""Have passport is true” : x1 ;  ""Have ticket is true” : x2 ; “Board flight is true” : x3"
+"If a message is sent to a receiver, then the message will eventually be received",G(x1 -> F(x2)),"""A message is sent” : x1; ”The message is received” : x2"
+"If something is born, then it is living up until the point in time that it becomes dead",G(x1 -> (x2 U x3)),"""Something is born” : x1 ; ""Something is living” : x2 ;  “Something is dead” : x3"
+"Whenever we try to print a document then, at the next moment in time, either the document will be printed or we again try to print it",G(x2 -> X(x1 | x2)),"""The document is printed” : x1 ; ""We try to print a document” : x2"
+"Whenever the document has been printed, the system will never try to print it",G(x1 -> G(!x2)),"""The document is printed” : x1 ; ""We try to print a document” : x2"
+"Eventually, it will stop trying to print the document",F(G(!x1)),"""We try to print a document” : x1"
+Whenever we try to print a document then at some future moment we will not try to print it,G (x1 -> F !x1),"""We try to print a document” : x1"
+"If it is Tuesday and we are in Liverpool, then it is raining",G((x1 & x2) -> x3),"""It is Tuesday” : x1 ; ”We are in Liverpool” : x2 ; ""It is raining” : x3"
+"If it is Tuesday, then it will continue raining while we remain in Liverpool",G(x1 -> (x3 U !x2)),"""It is Tuesday” : x1 ; ”We are in Liverpool” : x2 ; ""It is raining” : x3"
+"Eventually, printing will be allowed for some process",F(x1),"""Printing is allowed” : x1"
+Printing for processes 'a' and 'b' can never occur simultaneously,G!(x1 & x2),"""Process a is printing” : x1 ;  ""Process b is printing” : x2"
+"If a process makes a print request infinitely often, then printing for that process will occur infinitely often",G(F(x1))-> G(F(x2)),"""A process makes a print request” : x1 ; ""Printing for that process occurs” : x2"
+"If, whenever I am happy, I will certainly be happy on the next day, then, if I am happy now, then I will always be happy in the future.",G (x1 -> X(x1)) -> (x1 -> G(x1)),"""I am happy” : x1"
+"If it is always the case that when it rains it pours then, if it always rains, it always pours.",G(x1 -> x2) -> (G(x1) -> G(x2)),"""It rains” : x1 ; ”It pours” : x2"
+"If, from the beginning, the sky is always pink, then the sky will be pink whenever it is examined in the future.",G(x1 -> G (x2 -> x1),"""The sky is pink” : x1 ; ""The sky is examined” : x2"
+If it is always dark then it is not the case that it is sometimes light,G(x1 -> !F(x2)),"""It is dark” : x1 ; ""It is light” : x2"
+"tomorrow I will be both happy and hungry if, and only if, both tomorrow I will be happy and tomorrow I will hungry.",X(x1 & x2) <-> (X(x1) & X(x2)),"""I am happy” : x1 ; ""I am hungry” : x2"
+"If I am sleeping from now up until the time the alarm goes off and continue sleeping up until my doorbell rings, then I am sleeping from now up until the time my doorbell rings",((x1 U x2) & (x1 U x3)) -> (x1 U x3),"“I am sleeping” : x1 ; ""The alarm goes off” : x2 ; ”The doorbell rings” : x3"
+"If we attempt something infinitely often, then we will succeed infinitely often",G(F(x1)) -> G(F(x2)),"""We attempt something” : x1 ; ""We succeed” : x2"
+"If we attempt something infinitely often, then we will succeed at least once",G(F(x1 -> F(x2))),"""We attempt something” : x1 ; ""We succeed” : x2"
+"If we attempt something continuously, then we will succeed infinitely often",G(x1-> G(F(x2))),"""We attempt something” : x1 ; ""We succeed” : x2"
+"If we attempt something continuously, then we will succeed at least once",G(x1 -> F(x2)),"""We attempt something” : x1 ; ""We succeed” : x2"
+It never happens that a train is arriving and the bar is up,G(!(x1 & x2)),"""A train is arriving” : x1; ""The bar is up” : x2"
+"If input, then eventually output",G(x1 -> F(x2)),"""Input occurs” : x1 ; ""Output occurs” : x2"
+The device is not working if you don’t first repair it,G (!x2 -> !x1),"""The device is working” : x1; ""The device is repaired” : x2"
+Infinitely often send,G(F(x1)),"""Send occurs” : x1;"
+Infinitely often send implies infinitely often recv.,G(F(x1)) -> G(F(x2)),"""Send occurs” : x1; ""Receive occurs” : x2"
+"I'll have a second cup, so I'll die before noon if I don't.",x1 -> (!x1 -> x2),"""I have a second cup” : x1 ; ""I die before noon” : x2"
+"I can't die before noon, for it's false that if I don't have a second cup I'll die before noon.",!x2 & !(!x1 -> x2),"""I have a second cup” : x1 ; ""I die before noon” : x2"
+"If Oswald hadn't killed Kennedy, someone else would have.",!x1 -> x2,"""Oswald killed Kennedy” : x1 ; ""Someone else killed Kennedy” : x2"
+"If Oswald didn't kill Kennedy, someone else did.",!x1 -> x2,"""Oswald killed Kennedy” : x1 ; ""Someone else killed Kennedy” : x2"
+Any time Min is home is a time Henry is home.,G (x1 -> x2),"""Min is home” : x1 ;  ""Henry is home” :  x2"
+If Min is home now then Henry is home now.,x1 -> x2,"""Min is home” : x1 ;  ""Henry is home” :  x2"
+If Min is home then Henry is.,x1 -> x2,"""Min is home” : x1 ;  ""Henry is home” :  x2"
+Only if Henry is home is Min home.,x1 -> x2,"""Min is home” : x1 ;  ""Henry is home” :  x2"
+Min is home only if Henry is.,x1 -> x2,"""Min is home” : x1 ;  ""Henry is home” :  x2"
+Henry is home if Min is.,x1 -> x2,"""Min is home” : x1 ;  ""Henry is home” :  x2"
+"If Min is home, Henry is.",x1 -> x2,"""Min is home” : x1 ;  ""Henry is home” :  x2"
+"If Min works on board that leaky tub, she's underpaid.",x1 -> x2,"""Min works on board that leaky tub” : x1 ; ”Min is underpaid” : x2"
+"Min's home if Henry is, but he isn't, so she isn't.",(x2 -> x1) & !x2 -> !x1,"""Min is home” : x1 ;  ""Henry is home” :  x2"
+"It's false that if Min is home, she's on board. Then if she's home, she's not on board.",!(x1 -> x2) -> (x1 -> !x2),"""Min is home” : x1 ;  ""Min is on board” : x2"
+"It's false that if Min is home, she's on board, because if she's home, she's not on board.",!(x1 -> x2) & (x1 -> !x2),"""Min is home” : x1 ;  ""Min is on board” : x2"
+"Look, we know that Min is on board if Henry is home. Then she has to be on board if she's home, because Henry's home if she is.",(X3 -> x2) & (x1 -> x3) -> (x1 -> x2),"""Min is home” : x1 ;  ""Min is on board” : x2 ; ""Henry is home” : x3"
+Min is home given that Henry is.,x2 -> x1,"""Min is home” : x1 ;  ""Henry is home” :  x2"
+Henry is home given that Min is.,x1 -> x2,"""Min is home” : x1 ;  ""Henry is home” :  x2"
+Both Min and Henry are home given that at least one is.,(x1 ∨ x2) -> (x1 ∧ x2),"""Min is home” : x1 ;  ""Henry is home” :  x2"
+Both Min and Henry are home given that exactly one is.,((x1 & !x2) | (!x1 & x2)) -> (x1 & x2),"""Min is home” : x1 ;  ""Henry is home” :  x2"
+Exactly one in home given that at least one is.,(x1 | x2) -> ((x1 & !x2) | (!x1 & x2)),"""Min is home” : x1 ;  ""Henry is home” :  x2"
+Either min is home or she and Hen are not both home ,X1 | !(x1 & x2),"""Min is home” : x1 ;  ""Henry is home” :  x2"
+Either min is home or she and Hen are both not home ,X1 | (!x1 & !x2),"""Min is home” : x1 ;  ""Henry is home” :  x2"
+Max is home if and only if Claire is at the library,"x1 <-> x2
+","""Max is home” : x1; ""Claire is at the library” : x2"
+Claire is at the library unless Max is home,"x2 <-> !x1
+","""Max is home” : x1; ""Claire is at the library” : x2"
+If Claire gave Folly to Max at 2:03 then Folly belonged to her at 2:00 and to him at 2:05.,x2 -> (x1 & x3),"""Folly belonged to Claire at 2:00” :  x1 ; ""Claire gave Folly to Max at 2:03” : x2 ; ""Folly belonged to Max at 2:05” :  x3"
+"Max fed Folly at 2:00 pm, but if he gave her to Claire then, Folly was not hungry five minutes later.",x1 ∧ (x2 -> !x3),"""Max fed Folly at 2:00 pm” :  x1 ; ""Max gave Folly to Claire” : x2 ; ""Folly was not hungry at 2:05 pm” : x3"
+"If neither Max nor Claire fed Folly at 2:00, then she was hungry.",(!x1 & !x2) -> x3,"""Max fed Folly at 2:00 pm” : x1 ; ""Claire fed Folly at 2:00 pm” : x2; ""Folly was hungry” : x3"
+Max was angry at 2:05 only if Claire fed either Folly or Scruffy five minutes before.,x1 -> (x2 | x3),"""Max was angry at 2:05 pm” :  x1; “Claire fed Folly at 2:00 pm” : x2 ; ""Claire fed Scruffy at 2:00 pm” : x3"
+Max is a student if and only if Claire is not.,x1 <-> !x2,"""Max is a student” : x1 ; ""Claire is a student” : x2"
+"If Abe can fool Stephen, surely he can fool Ulysses.",x1 -> x2,"""Abe can fool Stephen” :  x1 ; ""Abe can fool Ulysses” :  x2"
+"If you scratch my back, I’ll scratch yours.",x1 -> x2,"""You scratch my back” : x1 ; ""I'll scratch your back” :  x2"
+France will sign the treaty only if Germany does.,x1 -> x2,"""France will sign the treaty” :  x1 ; ""Germany will sign the treaty” :  x2"
+"If Tweedledee gets a party, so will Tweedledum, and vice versa.",x1 <-> x2,"""Tweedledee gets a party” :  x1 ; ""Tweedledum gets a party” :  x2"
+"If John and Mary went to the concert together, they must like each other",x1 -> x2,"""John and Mary went to the concert together” : x1 ; ""John and Mary like each other” : x2"
+You can have dessert only if you eat all your lima beans,x2 -> x1,“Have dessert” : x1 ;  “Eat all Iima beans” : x2
+"The unicorn, if it is not mythical, is a mammal, but if it is mythical, it is immortal.","(!x1 -> x2) & (x1 -> x3)
+","""The unicorn is mythical” :  x1 ; ""The unicorn is a mammal” : x2 ; ""The unicorn is immortal” : x3"
+"If the unicorn is either immortal or a mammal, it is horned.",(x1 | x2) -> x3,"""The unicorn is immortal” : x1 ; ""The unicorn is a mammal” :  x2 ; ""The unicorn is horned” : x3"
+"The unicorn, if horned, is elusive and magical, but if not horned, it is neither.",(x1 -> (x2 & x3)) & (!x1 -> !x2 & !x3),"""The unicorn is horned” : x1 ; ""The unicorn is a elusive” :  x2 ; ""The unicorn is magical” : x3"
+"If the unicorn is not horned, it is not mythical.",!x1 -> !x2,"""The unicorn is horned” : x1 ; ""The unicorn is a mythical” :  x2"
+The unicorn is horned if and only if magical or mythical.,x1 <-> (x2 | x3),"""The unicorn is horned” : x1 ; ""The unicorn is magical” : x2 ; ""The unicorn is a mythical” :  x3"
+"It is not necessary—no, nor so much as convenient—that the legislative should be always in being; but absolutely necessary that the executive power should, because there is not always need of new laws to be made, but always need of execution of the laws that are made.",(!G x1) & (G x2) & (!G x3) ∧ (G x4),"""The legislative power is in being (active)” : x1 ; ""The executive power is in being (active)” :  x2 ; ""There is a need for new laws to be made” : x3 ; ""There is a need for execution of existing laws” : x4
+"
