@@ -1,0 +1,45 @@
+#!/bin/bash
+
+input_file_name=${1}
+output_file_name=${2}
+
+echo "DEBUG: Input file to be processed : ${input_file_name}" 
+echo "DEBUG: Output file to be generated : ${output_file_name}" 
+echo "DEBUG: Removing the following files : errors.log ${output_file_name} error.log" 
+
+rm -f errors.log ${output_file_name} error.log
+
+echo "DEBUG: Compiling Project...." 
+
+./compile-project 
+
+cd exprunner/
+
+echo "DEBUG: Compiling the C++ program for running experiments ..." 
+
+g++ exp_runner.cpp -O3 -o exp_runner -Wall  
+
+retVal=$? 
+
+if [ $retVal -ne 0 ]; then 
+	echo "ERROR COMPILING" 
+	exit $retVal 
+fi 
+
+echo "DEBUG: C++ program file compiled correctly, generated executable"  
+
+cd ..
+
+echo "DEBUG: Removing the previous executable" 
+rm -f exp_runner 
+echo "DEBUG: Starting to copy the newly generated executable" 
+cp exprunner/exp_runner . 
+echo "DEBUG: Finished copying the new executable" 
+echo "DEBUG: Starting to run the experiment ..." 
+./exp_runner ${input_file_name} 1> ${output_file_name} 2>> errors.log
+echo "DEBUG: Finished running the experiments ..." 
+echo "DEBUG: the outputs are in the following file: ${output_file_name}" 
+echo "DEBUG: Any error messages produced are in the following file: errors.log" 
+
+# ./exp_runner omar.csv 1> generated_results.csv 2>> errors.log
+#rm -f exp_runner exprunner/exp_runner 

@@ -1,0 +1,7 @@
+#!/bin/bash 
+
+export NUSMVBINPATH="/Users/omar/Documents/SOFTWARE/MODEL-CHECKER/WORKING-NuSMV-2.6.0-Darwin/bin/"
+
+dune clean 
+
+dune build 

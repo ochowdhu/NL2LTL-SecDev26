@@ -1,0 +1,89 @@
+equiv
+((q & (X(G(s)) U ((q -> p) U u))) -> r)
+G(((q & (s U (p | u))) -> r))
+print_python
+G(x1) -> (x2 & !X(x2))
+positive_trace_gen
+G F(a & b)
+test-1.out
+print_signature 
+x & y & z & (a S b) & Y( H ( r)) -> v 
+print_formula 
+x -> (x1 S x2) 
+generate_random_formula
+print_formula 
+x1 -> X(X(X(x1)))
+print_formula 
+G(X(x1) <-> (x2 <-> X(!x2)))
+
+equiv
+!F(! a)
+G(a) 
+
+generate_random_formula
+print_formula 
+x & y -> z 
+generate_random_formula 
+check_trace_satisfaction 
+G(p -> (a S b) )
+[a=false, b=true, p=false]; [a=true, b=false, p=false]; [a=true, b=false, p=true]; ...
+check_trace_satisfaction
+a S b
+[a=false, b=true]; ...
+check_trace_satisfaction 
+G(a -> Y(b)) 
+[a=false,b=true]; [a=false,b=false]; [a=false,b=false]; [a=false,b=false]; [a=true,b=false]; ...
+
+check_trace_satisfaction
+G(a -> b) 
+[a=true,b=true]; [a=false,b=false];[a=false,b=false];[a=true,b=false];[a=false,b=true]; ...
+ 
+check_trace_satisfaction
+X(Y a)
+[a=true]; [a=false]; ...
+check_trace_satisfaction
+a U b 
+[a=false,b=true]; ...
+check_trace_satisfaction
+G(a) & G(c)
+[a=true,c=true]; [a=true,c=true]; ...
+check_entailment 
+G(a) 
+!F(a)
+print_formula 
+x & y -> z 
+check_entailment
+!F(a)
+G(a) 
+!F(!a) 
+check_past 
+H(a-> O(b))
+G(a -> F (b)) 
+check_future 
+G(a -> F (b)) 
+equiv 
+F(a) 
+!G(!a)
+negative_trace_gen 
+G ( X ( x1 ) -> ( x2 & ! X ( x2 ) ) )
+trace1.out
+F(a)
+positive_trace_gen 
+F(a)
+equiv
+F(a)
+!G(a)
+
+G(a -> F b )
+G(a -> TRUE U b )
+[](! a && b)
+
+[](a -> b && c)
+
+
+
+ 
+
+ 
+
+ 
